@@ -90,6 +90,63 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize background system
     initBackgrounds();
 
+    // Mouse trail effect
+    const cursor = document.querySelector('.cursor-trail');
+    const trail = [];
+    const trailLength = 20;
+    let mouseX = 0;
+    let mouseY = 0;
+    let isMoving = false;
+    let movementTimeout;
+
+    // Create trail elements
+    for (let i = 0; i < trailLength; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'cursor-trail';
+        dot.style.opacity = (1 - i / trailLength).toString();
+        dot.style.transform = `translate(${mouseX}px, ${mouseY}px) scale(${1 - i / trailLength})`;
+        document.body.appendChild(dot);
+        trail.push({
+            element: dot,
+            x: mouseX,
+            y: mouseY
+        });
+    }
+
+    // Update cursor position
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        isMoving = true;
+        
+        clearTimeout(movementTimeout);
+        movementTimeout = setTimeout(() => {
+            isMoving = false;
+        }, 100);
+
+        requestAnimationFrame(updateTrail);
+    });
+
+    // Update trail positions
+    function updateTrail() {
+        trail.forEach((dot, index) => {
+            if (index === 0) {
+                dot.x = mouseX;
+                dot.y = mouseY;
+            } else {
+                dot.x += (trail[index - 1].x - dot.x) * 0.3;
+                dot.y += (trail[index - 1].y - dot.y) * 0.3;
+            }
+
+            dot.element.style.transform = `translate(${dot.x}px, ${dot.y}px) scale(${1 - index / trailLength})`;
+            dot.element.style.opacity = isMoving ? (1 - index / trailLength).toString() : '0';
+        });
+
+        if (isMoving) {
+            requestAnimationFrame(updateTrail);
+        }
+    }
+
     // Add fade-in animation to all sections
     const sections = document.querySelectorAll('section');
     sections.forEach(section => {
