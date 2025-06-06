@@ -38,6 +38,83 @@
     }
 }
 
+/* Cartoon Character Styles */
+.cartoon-character {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    z-index: 1000;
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.cartoon-character:hover {
+    transform: scale(1.1);
+}
+
+.character-body {
+    width: 100%;
+    height: 100%;
+    background: #ffb6c1;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    animation: bounce 3s ease-in-out infinite;
+}
+
+.character-eyes {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.eye {
+    width: 20px;
+    height: 20px;
+    background: #333;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.eye::after {
+    content: '';
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+}
+
+.character-mouth {
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 20px;
+    border-bottom: 4px solid #333;
+    border-radius: 0 0 20px 20px;
+    transition: all 0.3s ease;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
 /* Reset and base styles */
 * {
     margin: 0;

@@ -197,4 +197,71 @@ document.addEventListener('DOMContentLoaded', () => {
             setBackground(imageUrls[currentIndex]);
         }
     });
+    // Cartoon character interaction
+    const character = document.querySelector('.cartoon-character');
+    const eyes = document.querySelectorAll('.eye');
+    const mouth = document.querySelector('.character-mouth');
+    let isWinking = false;
+
+    // Make eyes follow mouse
+    document.addEventListener('mousemove', (e) => {
+        eyes.forEach(eye => {
+            const rect = eye.getBoundingClientRect();
+            const x = (rect.left + rect.width / 2);
+            const y = (rect.top + rect.height / 2);
+            const rad = Math.atan2(e.pageX - x, e.pageY - y);
+            const rot = (rad * (180 / Math.PI) * -1) + 180;
+            eye.style.transform = `rotate(${rot}deg)`;
+        });
+    });
+
+    // Character interactions
+    character.addEventListener('click', () => {
+        if (!isWinking) {
+            isWinking = true;
+            const randomEye = eyes[Math.floor(Math.random() * eyes.length)];
+            randomEye.style.height = '2px';
+            mouth.style.borderRadius = '20px 20px 0 0';
+            mouth.style.borderBottom = 'none';
+            mouth.style.borderTop = '4px solid #333';
+
+            setTimeout(() => {
+                randomEye.style.height = '20px';
+                mouth.style.borderRadius = '0 0 20px 20px';
+                mouth.style.borderTop = 'none';
+                mouth.style.borderBottom = '4px solid #333';
+                isWinking = false;
+            }, 300);
+        }
+    });
+
+    // Random movements
+    setInterval(() => {
+        if (!isWinking) {
+            const randomMove = Math.floor(Math.random() * 3);
+            switch(randomMove) {
+                case 0: // Bounce
+                    character.style.transform = 'translateY(-20px)';
+                    setTimeout(() => {
+                        character.style.transform = 'translateY(0)';
+                    }, 200);
+                    break;
+                case 1: // Spin
+                    character.style.transform = 'rotate(360deg)';
+                    setTimeout(() => {
+                        character.style.transform = 'rotate(0)';
+                    }, 500);
+                    break;
+                case 2: // Shake
+                    character.style.transform = 'translateX(5px)';
+                    setTimeout(() => {
+                        character.style.transform = 'translateX(-5px)';
+                        setTimeout(() => {
+                            character.style.transform = 'translateX(0)';
+                        }, 100);
+                    }, 100);
+                    break;
+            }
+        }
+    }, 5000);
 });
