@@ -45,13 +45,16 @@
 }
 
 .wakatime-embed {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 30px;
     margin-top: 30px;
 }
 
-.wakatime-embed figure {
+.charts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+.charts-container figure {
     background: rgba(0, 0, 0, 0.3);
     padding: 20px;
     border-radius: 10px;

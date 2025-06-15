@@ -312,28 +312,25 @@ body {
     margin-top: 20px;
 }
 
+.stats-preview .charts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
 .stats-preview figure {
     margin: 0;
     width: 100%;
     min-height: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     background: rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     padding: 20px;
 }
 
-.stats-preview figure h3 {
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-}
-
-.stats-preview figure p {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.9rem;
+@media (max-width: 900px) {
+    .stats-preview .charts-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 .stats-preview embed {
