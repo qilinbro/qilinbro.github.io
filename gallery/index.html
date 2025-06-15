@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创意画廊 - Qilin Bro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="nav-link">返回首页</a>
+            </nav>
+            <h1 class="title">欢迎来到创意画廊 👋</h1>
+        </div>
+    </header>
+    <div id="banner">
+        <div class="img-list img-wrapper">
+            <div class="img-box">
+                <div class="info">
+                    <h3>图片展示 1</h3>
+                </div>
+                <img src="assets/image/1.png" alt="">
+            </div>
+            <div class="img-box">
+                <div class="info">
+                    <h3>图片展示 2</h3>
+                </div>
+                <img src="assets/image/2.png" alt="">
+            </div>
+            <div class="img-box">
+                <div class="info">
+                    <h3>图片展示 3</h3>
+                </div>
+                <img src="assets/image/3.png" alt="">
+            </div>
+            <div class="img-box">
+                <div class="info">
+                    <h3>图片展示 4</h3>
+                </div>
+                <img src="assets/image/4.png" alt="">
+            </div>
+            <div class="img-box">
+                <div class="info">
+                    <h3>图片展示 5</h3>
+                </div>
+                <img src="assets/image/5.png" alt="">
+            </div>
+            <div class="img-box" id="last-img-box">
+                <div class="info">
+                    <h3>图片展示 6</h3>
+                </div>
+                <img src="assets/image/6.png" alt="">
+            </div>
+        </div>
+    </div>
+    <script>
+        const imgListOne = document.querySelector('.img-list')
+        let imgBoxList = Array.prototype.slice.call(document.querySelectorAll('.img-list .img-box'))
+        const imgBoxCount = imgBoxList.length
+        const root = document.documentElement;
+        const lastImgBox = document.getElementById('last-img-box')
+
+        const postSpacing = Number(getComputedStyle(root).getPropertyValue('--post-spacing').replace("vw", ""));
+        const postSize = Number(getComputedStyle(root).getPropertyValue('--post-size').replace("vw", ""));
+
+        let imgBoxLength = postSize + postSpacing
+        let index = 0
+        let animationTime = 0.5
+        
+        imgBoxList.unshift(imgBoxList.pop())
+        imgListOne.style.transition = animationTime + 's ease'
+
+        function moveSlide(direction) {
+            if (direction === 'next') {
+                index--
+            } else {
+                index++
+                imgBoxList.unshift(imgBoxList.pop())
+            }
+
+            imgListOne.style.left = imgBoxLength * index + "vw";
+            
+            if (Math.abs(index) >= imgBoxCount) {
+                index = 0
+                setTimeout(() => {
+                    imgListOne.style.transition = 'none'
+                    imgListOne.style.left = 0
+                    if (direction === 'next') {
+                        imgBoxList.push(imgBoxList.shift())
+                    }
+                    requestAnimationFrame(() => {
+                        imgListOne.style.transition = animationTime + 's ease'
+                    })
+                }, animationTime * 1000)
+            }
+        }
+
+        // 鼠标滑动事件
+        let isDragging = false;
+        let startX = 0;
+        let currentX = 0;
+        let initialOffset = 0;
+
+        imgListOne.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            currentX = startX;
+            initialOffset = parseFloat(imgListOne.style.left) || 0;
+            imgListOne.style.transition = 'none';
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            currentX = e.clientX;
+            const diffX = (currentX - startX) / window.innerWidth * 100;
+            imgListOne.style.left = (initialOffset + diffX) + "vw";
+        });
+
+        document.addEventListener('mouseup', () => {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            const diffX = currentX - startX;
+            const percentMoved = Math.abs(diffX) / window.innerWidth * 100;
+            
+            imgListOne.style.transition = animationTime + 's ease';
+            
+            if (percentMoved > 10) {
+                moveSlide(diffX > 0 ? 'last' : 'next');
+            } else {
+                imgListOne.style.left = initialOffset + "vw";
+            }
+        });
+
+        // 触摸事件
+        imgListOne.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            currentX = startX;
+            initialOffset = parseFloat(imgListOne.style.left) || 0;
+            imgListOne.style.transition = 'none';
+        });
+
+        imgListOne.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            currentX = e.touches[0].clientX;
+            const diffX = (currentX - startX) / window.innerWidth * 100;
+            imgListOne.style.left = (initialOffset + diffX) + "vw";
+        });
+
+        imgListOne.addEventListener('touchend', () => {
+            const diffX = currentX - startX;
+            const percentMoved = Math.abs(diffX) / window.innerWidth * 100;
+            
+            imgListOne.style.transition = animationTime + 's ease';
+            
+            if (percentMoved > 10) {
+                moveSlide(diffX > 0 ? 'last' : 'next');
+            } else {
+                imgListOne.style.left = initialOffset + "vw";
+            }
+        });
+    </script>
+</body>
+</html>
