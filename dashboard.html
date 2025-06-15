@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编程统计 - Qilin Bro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="cursor-trail"></div>
+    
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="nav-link">返回首页</a>
+                <a href="projects.html" class="nav-link">项目展示</a>
+            </nav>
+            <h1 class="dashboard-title">编程统计</h1>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="dashboard-container">
+                <section class="wakatime-section">
+                    <h2>编程时间统计</h2>
+                    <div class="wakatime-embed">
+                        <figure>
+                            <embed src="https://wakatime.com/share/@ec44fecf-e2f0-4f10-b281-af54555dfc52/2f8d95e8-e9d0-4898-838e-23bf6a7707d2.svg"></embed>
+                        </figure>
+                    </div>
+                </section>
+
+                <section class="stats-section">
+                    <h2>编程习惯分析</h2>
+                    <div class="stats-grid">
+                        <div class="stats-card">
+                            <h3><i class="fas fa-code"></i> 常用编程语言</h3>
+                            <ul>
+                                <li><i class="fab fa-python"></i> Python</li>
+                                <li><i class="fab fa-js"></i> JavaScript</li>
+                                <li><i class="fab fa-html5"></i> HTML/CSS</li>
+                                <li><i class="fab fa-java"></i> Java</li>
+                            </ul>
+                        </div>
+                        <div class="stats-card">
+                            <h3><i class="fas fa-tools"></i> 主要开发工具</h3>
+                            <ul>
+                                <li><i class="fas fa-code-branch"></i> VS Code</li>
+                                <li><i class="fas fa-laptop-code"></i> IntelliJ IDEA</li>
+                                <li><i class="fas fa-terminal"></i> PyCharm</li>
+                            </ul>
+                        </div>
+                        <div class="stats-card">
+                            <h3><i class="far fa-clock"></i> 编码时间分布</h3>
+                            <ul>
+                                <li><i class="fas fa-calendar-day"></i> 工作日: 4-6小时/天</li>
+                                <li><i class="fas fa-calendar-week"></i> 周末: 2-4小时/天</li>
+                                <li><i class="fas fa-hourglass-half"></i> 最佳编码时间: 14:00-18:00</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <div class="cartoon-character">
+        <div class="character-body">
+            <div class="character-eyes">
+                <div class="eye left"></div>
+                <div class="eye right"></div>
+            </div>
+            <div class="character-mouth"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

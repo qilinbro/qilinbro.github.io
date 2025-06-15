@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qilin Bro - Personal Portfolio</title>
+    <title>kirin bao - Personal Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,7 +20,9 @@
     <header class="header">
         <div class="container">
             <div class="profile">
-                <img src="https://avatars.githubusercontent.com/u/185696434?v=4" alt="Qilin Bro" class="profile-image">
+                <div class="profile-image-container">
+                    <img src="https://avatars.githubusercontent.com/u/185696434?v=4" alt="Qilin Bro" class="profile-image">
+                </div>
                 <h1>Qilin Bro</h1>
                 <p class="bio">Software Developer & Engineer</p>
             </div>
@@ -38,23 +40,68 @@
                 <p>Hi there! I'm a passionate software engineer specializing in web development and system architecture. I love building elegant solutions to complex problems and constantly learning new technologies.</p>
             </section>
 
+            <section class="stats">
+                <h2>编程统计 <a href="dashboard.html" class="view-all">查看详情 →</a></h2>
+                <div class="stats-preview">
+                    <figure>
+                        <embed src="https://wakatime.com/share/@ec44fecf-e2f0-4f10-b281-af54555dfc52/2f8d95e8-e9d0-4898-838e-23bf6a7707d2.svg"></embed>
+                    </figure>
+                </div>
+            </section>
+
             <section class="projects">
-                <h2>My Projects</h2>
+                <h2>我的项目 <a href="projects.html" class="view-all">查看全部 →</a></h2>
                 <div class="project-grid">
                     <div class="project-card">
-                        <h3>Personal Website</h3>
-                        <p>My personal portfolio website built with modern web technologies.</p>
-                        <a href="https://github.com/qilinbro/qilinbro.github.io" target="_blank" class="project-link">View Project</a>
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <h3>PyQt-Zhihu</h3>
+                                <p>基于PyQt6开发的知乎客户端，支持内容浏览和下载。</p>
+                                <a href="https://github.com/qilinbro/PyQt-Zhihu" target="_blank" class="project-link">查看项目</a>
+                            </div>
+                            <div class="project-card-back">
+                                <h3>技术栈</h3>
+                                <ul>
+                                    <li>Python & PyQt6</li>
+                                    <li>Web爬虫技术</li>
+                                    <li>GUI应用开发</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     <div class="project-card">
-                        <h3>Soildwork Download</h3>
-                        <p>An efficient file management and download system for SolidWorks.</p>
-                        <a href="https://github.com/qilinbro/soildworkdownload" target="_blank" class="project-link">View Project</a>
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <h3>TOF-Acquisition</h3>
+                                <p>TOF相机数据采集和处理软件，支持实时数据处理。</p>
+                                <a href="https://github.com/qilinbro/TOF-Acquisition" target="_blank" class="project-link">查看项目</a>
+                            </div>
+                            <div class="project-card-back">
+                                <h3>技术栈</h3>
+                                <ul>
+                                    <li>C++ & OpenCV</li>
+                                    <li>图像处理</li>
+                                    <li>USB通信</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     <div class="project-card">
-                        <h3>Opera Plugins</h3>
-                        <p>A collection of useful browser extensions for Opera.</p>
-                        <a href="https://github.com/qilinbro/opera-plugin" target="_blank" class="project-link">View Project</a>
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <h3>MCF-Manager</h3>
+                                <p>民事法律文书电子化管理系统，提供文件转换和管理功能。</p>
+                                <a href="https://github.com/qilinbro/MCF-Manager" target="_blank" class="project-link">查看项目</a>
+                            </div>
+                            <div class="project-card-back">
+                                <h3>技术栈</h3>
+                                <ul>
+                                    <li>Python开发</li>
+                                    <li>电子文档处理</li>
+                                    <li>数据加密存储</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -64,10 +111,13 @@
     <footer class="footer">
         <div class="container">
             <div class="social-links">
-                <a href="https://github.com/qilinbro" target="_blank" class="social-link">GitHub</a>
-                <a href="mailto:qilinxie@gmail.com" class="social-link">Gmail</a>
-                <a href="https://twitter.com/gfnjmh" target="_blank" class="social-link">X</a>
-                <span class="social-link">QQ: 3221565903</span>
+                <div class="social-link-container">
+                    <a href="https://github.com/qilinbro" target="_blank" class="social-link" data-tooltip="查看我的开源项目">GitHub</a>
+                    <a href="mailto:qilinxie@gmail.com" class="social-link" data-tooltip="发送邮件给我">Gmail</a>
+                    <a href="https://twitter.com/gfnjmh" target="_blank" class="social-link" data-tooltip="在X上关注我">X</a>
+                    <a href="dashboard.html" class="social-link" data-tooltip="查看我的编程统计">统计</a>
+                    <span class="social-link" data-tooltip="添加我的QQ">QQ: 3221565903</span>
+                </div>
             </div>
             <p class="copyright">&copy; 2025 Qilin Bro. All rights reserved.</p>
         </div>

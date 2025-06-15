@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         document.body.style.opacity = '0.8';
         setTimeout(() => {
-            document.body.style.background = `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${imageUrl})`;
+            document.body.style.background = `linear-gradient(rgba(175, 63, 63, 0.6), rgba(0, 0, 0, 0.6)), url(${imageUrl})`;
             document.body.style.backgroundSize = 'cover';
             document.body.style.backgroundPosition = 'center';
             document.body.style.backgroundAttachment = 'fixed';
@@ -174,14 +174,27 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionObserver.observe(section);
     });
 
-    // Add hover effect to project cards
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.transform = 'translateY(-10px)';
+    // 头像点击放大效果
+    const profileContainer = document.querySelector('.profile-image-container');
+    profileContainer.addEventListener('click', () => {
+        profileContainer.classList.toggle('zoomed');
+    });
+
+    // 点击其他区域取消放大
+    document.addEventListener('click', (e) => {
+        if (!profileContainer.contains(e.target) && profileContainer.classList.contains('zoomed')) {
+            profileContainer.classList.remove('zoomed');
+        }
+    });
+
+    // 社交链接提示框效果
+    const socialLinks = document.querySelectorAll('.social-link[data-tooltip]');
+    socialLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            link.style.transform = 'translateY(-3px)';
         });
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'translateY(0)';
+        link.addEventListener('mouseleave', () => {
+            link.style.transform = 'translateY(0)';
         });
     });
 
