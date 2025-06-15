@@ -111,21 +111,6 @@ body {
     cursor: pointer;
 }
 
-#banner .img-wrapper .img-box .info {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba(23, 23, 23, 0.5);
-    text-align: center;
-    color: #fff9f1;
-    font-size: 4rem;
-}
-
 #banner .img-wrapper .img-box img {
     width: var(--post-size);
     height: 100%;
