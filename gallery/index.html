@@ -7,33 +7,58 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="intro-animation">
+        <div class="intro-text">
+            <span>l</span>
+            <span>i</span>
+            <span>v</span>
+            <span>i</span>
+            <span>n</span>
+            <span>g</span>
+            <span>&nbsp;</span>
+            <span>t</span>
+            <span>i</span>
+            <span>m</span>
+            <span>e</span>
+        </div>
+        <div class="loading-bar">
+            <span>🎨</span>
+            <span>🎭</span>
+            <span>🎪</span>
+            <span>🎬</span>
+            <span>🎮</span>
+            <span>🎯</span>
+            <span>🎲</span>
+            <span>🎭</span>
+        </div>
+    </div>
     <header class="header">
         <div class="container">
             <nav class="nav">
                 <a href="../index.html" class="nav-link">返回首页</a>
             </nav>
-            <h1 class="title">欢迎来到创意画廊 👋</h1>
+            <h1 class="title">我的作品集 📸</h1>
         </div>
     </header>
     <div id="banner">
         <div class="img-list img-wrapper">
             <div class="img-box">
-                <img src="assets/image/1.png" alt="">
+                <img src="../images/1.jpg" alt="画廊图片1">
             </div>
             <div class="img-box">
-                <img src="assets/image/2.png" alt="">
+                <img src="../images/2.jpg" alt="画廊图片2">
             </div>
             <div class="img-box">
-                <img src="assets/image/3.png" alt="">
+                <img src="../images/3.jpg" alt="画廊图片3">
             </div>
             <div class="img-box">
-                <img src="assets/image/4.png" alt="">
+                <img src="../images/4.jpg" alt="画廊图片4">
             </div>
             <div class="img-box">
-                <img src="assets/image/5.png" alt="">
+                <img src="../images/5.jpg" alt="画廊图片5">
             </div>
             <div class="img-box" id="last-img-box">
-                <img src="assets/image/6.png" alt="">
+                <img src="../images/6.jpg" alt="画廊图片6">
             </div>
         </div>
     </div>
@@ -144,6 +169,16 @@
                 imgListOne.style.left = initialOffset + "vw";
             }
         });
+    </script>
+    <script src="../js/particle-animation.js"></script>
+    <script>
+        // 动画完成后移除 intro-animation 元素
+        setTimeout(() => {
+            const intro = document.querySelector('.intro-animation');
+            if (intro) {
+                intro.parentElement.removeChild(intro);
+            }
+        }, 2500); // 缩短动画时间
     </script>
 </body>
 </html>

@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <div class="intro-animation">
+        <div class="intro-text">
+            <span>k</span>
+            <span>i</span>
+            <span>r</span>
+            <span>i</span>
+            <span>n</span>
+            <span>b</span>
+            <span>a</span>
+            <span>o</span>
+        </div>
+    </div>
     <div class="cursor-trail"></div>
     
     <header class="header">
@@ -83,5 +95,16 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="js/particle-animation.js"></script>
+    <script>
+        // 动画完成后移除 intro-animation 元素
+        setTimeout(() => {
+            const intro = document.querySelector('.intro-animation');
+            if (intro) {
+                intro.parentElement.removeChild(intro);
+            }
+        }, 2500); // 缩短动画时间
+    </script>
+    <script src="js/floating-bg.js"></script>
 </body>
 </html>

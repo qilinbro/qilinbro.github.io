@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neighborhood - Qilin Bro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="intro-animation">
+        <div class="intro-text">
+            <span>n</span>
+            <span>e</span>
+            <span>i</span>
+            <span>g</span>
+            <span>h</span>
+            <span>b</span>
+            <span>o</span>
+            <span>r</span>
+            <span>h</span>
+            <span>o</span>
+            <span>o</span>
+            <span>d</span>
+       </div>
+       <div class="loading-bar">
+           <span>😊</span>
+           <span>😄</span>
+           <span>😃</span>
+           <span>😆</span>
+           <span>😅</span>
+           <span>🤣</span>
+           <span>😂</span>
+           <span>🥰</span>
+       </div>
+    </div>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="nav-link">返回首页</a>
+            </nav>
+            <h1 class="title">我的邻居们 🏘️</h1>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <a href="https://blog.angforever.top/" class="friend-card" target="_blank">
+                <div class="friend-info">
+                    <img src="../images/Angforever.png" alt="ANGJustinl" class="friend-avatar">
+                    <div class="friend-details">
+                        <h2 class="friend-name">ANGJustinl</h2>
+                        <p class="friend-description">永远的昂昂</p>
+                    </div>
+                </div>
+                <div class="friend-action">访问博客</div>
+            </a>
+        </div>
+    </main>
+    <script src="../js/particle-animation.js"></script>
+    <script>
+        // 动画完成后移除 intro-animation 元素
+        setTimeout(() => {
+            const intro = document.querySelector('.intro-animation');
+            if (intro) {
+                intro.parentElement.removeChild(intro);
+            }
+        }, 2500); // 缩短动画时间
+    </script>
+</body>
+</html>

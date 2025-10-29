@@ -1,3 +1,192 @@
+/* Intro Animation */
+.intro-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: introFadeOut 2s ease-in-out forwards;
+}
+
+.intro-text {
+    font-size: 5rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.loading-bar {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.loading-bar span {
+    font-size: 2rem;
+    opacity: 0;
+    transform: scale(0.5);
+    filter: blur(2px);
+    animation: emojiLoad 0.3s ease-out forwards;
+}
+
+.loading-bar span:nth-child(1) { animation-delay: 0.1s; }
+.loading-bar span:nth-child(2) { animation-delay: 0.2s; }
+.loading-bar span:nth-child(3) { animation-delay: 0.3s; }
+.loading-bar span:nth-child(4) { animation-delay: 0.4s; }
+.loading-bar span:nth-child(5) { animation-delay: 0.5s; }
+.loading-bar span:nth-child(6) { animation-delay: 0.6s; }
+.loading-bar span:nth-child(7) { animation-delay: 0.7s; }
+.loading-bar span:nth-child(8) { animation-delay: 0.8s; }
+
+@keyframes emojiLoad {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateY(10px);
+        filter: blur(2px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* 添加消失动画 */
+.loading-bar span {
+    animation:
+        emojiLoad 0.3s ease-out forwards,
+        emojiUnload 0.3s ease-in forwards;
+}
+
+.loading-bar span:nth-child(1) { animation-delay: 0.1s, 1.6s; }
+.loading-bar span:nth-child(2) { animation-delay: 0.2s, 1.7s; }
+.loading-bar span:nth-child(3) { animation-delay: 0.3s, 1.8s; }
+.loading-bar span:nth-child(4) { animation-delay: 0.4s, 1.9s; }
+.loading-bar span:nth-child(5) { animation-delay: 0.5s, 2.0s; }
+.loading-bar span:nth-child(6) { animation-delay: 0.6s, 2.1s; }
+.loading-bar span:nth-child(7) { animation-delay: 0.7s, 2.2s; }
+.loading-bar span:nth-child(8) { animation-delay: 0.8s, 2.3s; }
+
+@keyframes emojiUnload {
+    0% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: blur(0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.8) translateY(-10px);
+        filter: blur(2px);
+    }
+}
+
+.intro-text span {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    transform: translateY(20px) scale(0.5);
+    display: inline-block;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.intro-text span:nth-child(1) { animation: letterIn 0.4s ease-out 0.1s forwards, letterOut 0.4s ease-in 1.6s forwards; }
+.intro-text span:nth-child(2) { animation: letterIn 0.4s ease-out 0.2s forwards, letterOut 0.4s ease-in 1.7s forwards; }
+.intro-text span:nth-child(3) { animation: letterIn 0.4s ease-out 0.3s forwards, letterOut 0.4s ease-in 1.8s forwards; }
+.intro-text span:nth-child(4) { animation: letterIn 0.4s ease-out 0.4s forwards, letterOut 0.4s ease-in 1.9s forwards; }
+.intro-text span:nth-child(5) { animation: letterIn 0.4s ease-out 0.5s forwards, letterOut 0.4s ease-in 2.0s forwards; }
+.intro-text span:nth-child(6) { animation: letterIn 0.4s ease-out 0.6s forwards, letterOut 0.4s ease-in 2.1s forwards; }
+.intro-text span:nth-child(7) { animation: letterIn 0.4s ease-out 0.7s forwards, letterOut 0.4s ease-in 2.2s forwards; }
+
+@keyframes letterIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes letterOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.8);
+    }
+}
+
+@keyframes introFadeOut {
+    0%, 70% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
+@keyframes textReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes textGlow {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(51, 51, 51, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(51, 51, 51, 0.8);
+    }
+}
+
+@keyframes textFadeOut {
+    0% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.2) translateY(-20px);
+    }
+}
+
+/* Hide main content initially */
+body > *:not(.intro-animation) {
+    opacity: 0;
+    animation: mainContentFade 1s ease-out 2.5s forwards;
+}
+
+@keyframes mainContentFade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 /* 项目页面特定样式 */
 .nav {
     margin-bottom: 20px;
@@ -5,25 +194,28 @@
 
 .nav-link {
     display: inline-block;
-    color: white;
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
-    padding: 10px 20px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 25px;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    transition: all 0.4s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 .nav-link:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-color: rgba(255, 255, 255, 0.5);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 1);
 }
 
-.project-title {
+.project-title, .section-title {
     font-size: 3rem;
     margin: 30px 0;
     text-align: center;
@@ -33,43 +225,96 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+.section-title {
+    font-size: 2.5rem;
+    margin: 50px 0 30px 0;
+    text-align: left;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
+    border-radius: 3px;
+}
+
 .project-section {
     background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 15px;
-    padding: 30px;
+    padding: 40px;
     margin-bottom: 40px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.4s ease;
+    width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .project-section:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.project-section h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: rgba(255, 255, 255, 0.9);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.project-section:hover h2 {
+    color: #fff;
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
 .project-content {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 30px;
 }
 
 .project-info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr;
     gap: 30px;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .tech-stack, .project-description {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     padding: 20px;
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.tech-stack:hover, .project-description:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
 }
 
 .tech-stack h3, .project-description h3 {
-    color: #fff;
+    color: #333;
     margin-bottom: 15px;
     font-size: 1.3rem;
 }
@@ -84,6 +329,12 @@
     color: rgba(255, 255, 255, 0.8);
     padding-left: 20px;
     position: relative;
+    transition: all 0.3s ease;
+}
+
+.tech-stack li:hover, .project-description li:hover {
+    color: #fff;
+    transform: translateX(5px);
 }
 
 .tech-stack li::before, .project-description li::before {
@@ -101,9 +352,10 @@
 
 .project-link {
     display: inline-block;
-    padding: 12px 25px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    color: white;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
+    color: #333;
     text-decoration: none;
     border-radius: 25px;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -112,8 +364,119 @@
     margin-top: 20px;
 }
 
+/* 代码展示样式 */
+.code-preview {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    margin-top: 20px;
+    font-family: 'Consolas', monospace;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.code-preview.collapsed {
+    max-height: 60px;
+}
+
+.code-preview:not(.collapsed) {
+    padding: 20px;
+}
+
+.code-preview {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-family: 'Consolas', monospace;
+    position: relative;
+    overflow: hidden;
+}
+
+.code-preview pre {
+    color: #e0e0e0;
+    margin: 0;
+    padding: 15px;
+    overflow-x: auto;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.code-preview code {
+    color: #e0e0e0;
+}
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 10px;
+}
+
+.code-title {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.code-language {
+    color: #888;
+    font-size: 0.8rem;
+    padding: 3px 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+/* 代码高亮颜色 */
+.code-preview .keyword { color: #ff79c6; }
+.code-preview .string { color: #f1fa8c; }
+.code-preview .comment { color: #6272a4; }
+.code-preview .function { color: #50fa7b; }
+.code-preview .number { color: #bd93f9; }
+.code-preview .operator { color: #ff79c6; }
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+
+.code-header::after {
+    content: '▼';
+    font-size: 12px;
+    color: #888;
+    transition: transform 0.3s ease;
+}
+
+.collapsed .code-header::after {
+    transform: rotate(-90deg);
+}
+
+.code-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    max-height: 1000px;
+}
+
+.collapsed .code-content {
+    max-height: 0;
+}
+
+.code-preview pre {
+    margin: 0;
+    padding: 15px 20px;
+}
+
 .project-link:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-color: rgba(255, 255, 255, 0.5);
@@ -121,8 +484,17 @@
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-    .project-title {
+    .project-title, .section-title {
         font-size: 2rem;
+    }
+
+    .section-title {
+        text-align: center;
+    }
+
+    .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .project-section {
@@ -134,8 +506,93 @@
     }
 }
 
+/* 背景图片展示区域 */
+.background-showcase {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.background-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.bg-image {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    filter: blur(5px);
+    transition: all 0.8s ease;
+    animation: bgFloat 20s ease-in-out infinite alternate;
+}
+
+@keyframes bgFloat {
+    0% {
+        transform: scale(1.1) translateY(-2%);
+    }
+    50% {
+        transform: scale(1.15) translateY(0%);
+    }
+    100% {
+        transform: scale(1.1) translateY(2%);
+    }
+}
+
+.bg-image:nth-child(1) {
+    background-image: url('images/bg-1.webp');
+}
+
+.bg-image:nth-child(2) {
+    background-image: url('images/bg-2.webp');
+}
+
+.bg-image:nth-child(3) {
+    background-image: url('images/bg-3.webp');
+}
+
+.bg-image:hover {
+    opacity: 0.25;
+    filter: blur(3px);
+    flex: 1.3;
+    animation-play-state: paused;
+}
+
+.bg-image:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.bg-image:nth-child(2) {
+    animation-delay: -5s;
+}
+
+.bg-image:nth-child(3) {
+    animation-delay: -10s;
+}
+
+/* 调整主体内容样式以适应背景 */
+.main {
+    position: relative;
+    z-index: 1;
+}
+
+.project-section {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
 @media (max-width: 480px) {
-    .project-title {
+    .project-title, .section-title {
         font-size: 1.8rem;
     }
 

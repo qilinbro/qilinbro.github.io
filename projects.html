@@ -6,8 +6,59 @@
     <title>项目展示 - Qilin Bro</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="projects.css">
+    <style>
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        body {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .header {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+        }
+        .project-title {
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+        .section-title {
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+    </style>
 </head>
 <body>
+    <div class="background-showcase">
+        <div class="background-images">
+            <div class="bg-image"></div>
+            <div class="bg-image"></div>
+            <div class="bg-image"></div>
+        </div>
+    </div>
+    <div class="intro-animation">
+        <div class="intro-text">
+            <span>c</span>
+            <span>o</span>
+            <span>d</span>
+            <span>i</span>
+            <span>n</span>
+            <span>g</span>
+        </div>
+        <div class="loading-bar">
+            <span>💻</span>
+            <span>⌨️</span>
+            <span>🖥️</span>
+            <span>🚀</span>
+            <span>💡</span>
+            <span>⚡</span>
+            <span>🔮</span>
+            <span>✨</span>
+        </div>
+    </div>
     <div class="cursor-trail"></div>
     
     <header class="header">
@@ -15,13 +66,169 @@
             <nav class="nav">
                 <a href="index.html" class="nav-link">返回首页</a>
             </nav>
-            <h1 class="project-title">项目展示</h1>
+            <h1 class="project-title">我的代码世界</h1>
         </div>
     </header>
 
     <main class="main">
         <div class="container">
+            <h2 class="section-title">开源项目</h2>
             <div class="project-details">
+                <section class="project-section">
+                    <h2>image-grid-generator</h2>
+                    <div class="project-content">
+                        <div class="project-info">
+                            <div class="tech-stack">
+                                <h3>技术栈</h3>
+                                <ul>
+                                    <li>Python</li>
+                                    <li>图像处理</li>
+                                    <li>网格布局</li>
+                                    <li>自动化工具</li>
+                                </ul>
+                            </div>
+                            <div class="project-description">
+                                <h3>项目描述</h3>
+                                <p>一个用于生成图像网格布局的工具：</p>
+                                <ul>
+                                    <li>自动排列多张图片</li>
+                                    <li>支持自定义布局</li>
+                                    <li>灵活的网格配置</li>
+                                    <li>批量处理能力</li>
+                                </ul>
+                            </div>
+                            <div class="code-preview collapsed">
+                                <div class="code-header" onclick="toggleCode(this.parentElement)">
+                                    <span class="code-title">图像网格生成示例</span>
+                                    <span class="code-language">Python</span>
+                                </div>
+                                <pre><code><span class="keyword">def</span> <span class="function">generate_image_grid</span>(images, rows, cols):
+    <span class="comment"># 计算网格大小</span>
+    grid_width = cols * image_width
+    grid_height = rows * image_height
+    
+    <span class="comment"># 创建空白画布</span>
+    grid = Image.new(<span class="string">'RGB'</span>, (grid_width, grid_height))
+    
+    <span class="keyword">for</span> i, image <span class="keyword">in</span> <span class="function">enumerate</span>(images):
+        row = i // cols
+        col = i % cols
+        grid.paste(image, (col * image_width, row * image_height))
+        
+    <span class="keyword">return</span> grid</code></pre>
+                            </div>
+                            <a href="#" class="project-link">本地项目</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h2>Astar寻路算法</h2>
+                    <div class="project-content">
+                        <div class="project-info">
+                            <div class="tech-stack">
+                                <h3>技术栈</h3>
+                                <ul>
+                                    <li>算法实现</li>
+                                    <li>路径规划</li>
+                                    <li>图形界面</li>
+                                    <li>数据结构</li>
+                                </ul>
+                            </div>
+                            <div class="project-description">
+                                <h3>项目描述</h3>
+                                <p>A*寻路算法的实现与可视化：</p>
+                                <ul>
+                                    <li>可视化寻路过程</li>
+                                    <li>支持障碍物设置</li>
+                                    <li>实时路径更新</li>
+                                    <li>多种启发函数</li>
+                                </ul>
+                            </div>
+                            <div class="code-preview">
+                                <div class="code-header">
+                                    <span class="code-title">A*算法核心代码</span>
+                                    <span class="code-language">Python</span>
+                                </div>
+                                <pre><code><span class="keyword">def</span> <span class="function">astar</span>(start, goal, grid):
+    <span class="comment"># 初始化开放和关闭列表</span>
+    open_list = {start}
+    closed_list = set()
+    
+    <span class="keyword">while</span> open_list:
+        current = min(open_list, key=<span class="keyword">lambda</span> x: f_score[x])
+        
+        <span class="keyword">if</span> current == goal:
+            <span class="keyword">return</span> reconstruct_path(came_from, current)
+            
+        open_list.remove(current)
+        closed_list.add(current)
+        
+        <span class="keyword">for</span> neighbor <span class="keyword">in</span> get_neighbors(current):
+            <span class="keyword">if</span> neighbor <span class="keyword">in</span> closed_list:
+                <span class="keyword">continue</span>
+                
+            tentative_g = g_score[current] + distance(current, neighbor)
+            
+            <span class="keyword">if</span> neighbor <span class="keyword">not in</span> open_list:
+                open_list.add(neighbor)
+            <span class="keyword">elif</span> tentative_g >= g_score[neighbor]:
+                <span class="keyword">continue</span>
+                
+            came_from[neighbor] = current</code></pre>
+                            </div>
+                            <a href="#" class="project-link">本地项目</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h2>JMcomici</h2>
+                    <div class="project-content">
+                        <div class="project-info">
+                            <div class="tech-stack">
+                                <h3>技术栈</h3>
+                                <ul>
+                                    <li>Web开发</li>
+                                    <li>爬虫技术</li>
+                                    <li>数据处理</li>
+                                    <li>内容管理</li>
+                                </ul>
+                            </div>
+                            <div class="project-description">
+                                <h3>项目描述</h3>
+                                <p>一个漫画内容管理系统：</p>
+                                <ul>
+                                    <li>漫画资源采集</li>
+                                    <li>分类管理功能</li>
+                                    <li>在线阅读支持</li>
+                                    <li>用户收藏系统</li>
+                                </ul>
+                            </div>
+                            <div class="code-preview">
+                                <div class="code-header">
+                                    <span class="code-title">漫画资源爬取示例</span>
+                                    <span class="code-language">Python</span>
+                                </div>
+                                <pre><code><span class="keyword">async def</span> <span class="function">fetch_comic_data</span>(url):
+    <span class="comment"># 异步获取漫画数据</span>
+    <span class="keyword">async with</span> aiohttp.ClientSession() <span class="keyword">as</span> session:
+        <span class="keyword">async with</span> session.get(url) <span class="keyword">as</span> response:
+            data = <span class="keyword">await</span> response.json()
+            
+    <span class="comment"># 解析数据结构</span>
+    comic_info = {
+        <span class="string">'title'</span>: data[<span class="string">'title'</span>],
+        <span class="string">'chapters'</span>: data[<span class="string">'chapters'</span>],
+        <span class="string">'cover'</span>: data[<span class="string">'cover_url'</span>]
+    }
+    
+    <span class="keyword">return</span> comic_info</code></pre>
+                            </div>
+                            <a href="#" class="project-link">本地项目</a>
+                        </div>
+                    </div>
+                </section>
                 <section class="project-section">
                     <h2>PyQt-Zhihu</h2>
                     <div class="project-content">
@@ -44,6 +251,29 @@
                                     <li>图片资源下载</li>
                                     <li>自定义主题设置</li>
                                 </ul>
+                            </div>
+                            <div class="code-preview">
+                                <div class="code-header">
+                                    <span class="code-title">知乎客户端核心代码</span>
+                                    <span class="code-language">Python</span>
+                                </div>
+                                <pre><code><span class="keyword">class</span> <span class="function">ZhihuCrawler</span>(QMainWindow):
+    <span class="keyword">def</span> <span class="function">__init__</span>(self):
+        super().__init__()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+        
+    <span class="keyword">async def</span> <span class="function">fetch_article</span>(self, url):
+        <span class="comment"># 异步获取知乎文章内容</span>
+        <span class="keyword">async with</span> aiohttp.ClientSession() <span class="keyword">as</span> session:
+            <span class="keyword">async with</span> session.get(url) <span class="keyword">as</span> response:
+                html = <span class="keyword">await</span> response.text()
+                
+        <span class="comment"># 解析文章内容</span>
+        soup = BeautifulSoup(html, <span class="string">'html.parser'</span>)
+        content = soup.find(<span class="string">'div'</span>, class_=<span class="string">'Post-RichText'</span>)
+        
+        <span class="keyword">return</span> self._process_content(content)</code></pre>
                             </div>
                             <a href="https://github.com/qilinbro/PyQt-Zhihu" target="_blank" class="project-link">查看源码</a>
                         </div>
@@ -72,6 +302,35 @@
                                     <li>数据可视化</li>
                                     <li>参数配置管理</li>
                                 </ul>
+                            </div>
+                            <div class="code-preview">
+                                <div class="code-header">
+                                    <span class="code-title">TOF相机数据处理</span>
+                                    <span class="code-language">C++</span>
+                                </div>
+                                <pre><code><span class="keyword">class</span> <span class="function">TOFProcessor</span> {
+<span class="keyword">public</span>:
+    <span class="function">void</span> processDepthData(<span class="keyword">const</span> Mat& depthMap) {
+        <span class="comment">// 深度图像处理</span>
+        Mat processed;
+        GaussianBlur(depthMap, processed, Size(5, 5), 0);
+        
+        <span class="comment">// 边缘检测</span>
+        Mat edges;
+        Canny(processed, edges, 50, 150);
+        
+        <span class="comment">// 3D点云转换</span>
+        vector<Point3f> pointCloud;
+        <span class="keyword">for</span>(<span class="keyword">int</span> y = 0; y < depthMap.rows; y++) {
+            <span class="keyword">for</span>(<span class="keyword">int</span> x = 0; x < depthMap.cols; x++) {
+                <span class="keyword">float</span> depth = depthMap.at<float>(y, x);
+                <span class="keyword">if</span>(depth > 0) {
+                    pointCloud.push_back(depthToPoint3D(x, y, depth));
+                }
+            }
+        }
+    }
+};</code></pre>
                             </div>
                             <a href="https://github.com/qilinbro/TOF-Acquisition" target="_blank" class="project-link">查看源码</a>
                         </div>
@@ -106,6 +365,121 @@
                     </div>
                 </section>
             </div>
+
+            <h2 class="section-title">技术收藏</h2>
+            <div class="starred-projects">
+                <section class="project-section">
+                    <h2>TimeCat</h2>
+                    <div class="project-content">
+                        <div class="project-info">
+                            <div class="tech-stack">
+                                <h3>技术栈</h3>
+                                <ul>
+                                    <li>TypeScript</li>
+                                    <li>前端录制</li>
+                                    <li>回放系统</li>
+                                    <li>性能优化</li>
+                                </ul>
+                            </div>
+                            <div class="project-description">
+                                <h3>项目描述</h3>
+                                <p>TimeCat是一款前端录制和回放工具，提供以下功能：</p>
+                                <ul>
+                                    <li>网页操作完整记录</li>
+                                    <li>精确还原交互过程</li>
+                                    <li>支持多种录制模式</li>
+                                    <li>可扩展的插件系统</li>
+                                </ul>
+                            </div>
+                            <a href="https://github.com/oct16/TimeCat" target="_blank" class="project-link">查看项目</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h2>marktext</h2>
+                    <div class="project-content">
+                        <div class="project-info">
+                            <div class="tech-stack">
+                                <h3>技术栈</h3>
+                                <ul>
+                                    <li>Vue</li>
+                                    <li>Electron</li>
+                                    <li>Markdown解析</li>
+                                    <li>富文本编辑</li>
+                                </ul>
+                            </div>
+                            <div class="project-description">
+                                <h3>项目描述</h3>
+                                <p>一个优雅的开源Markdown编辑器，特点包括：</p>
+                                <ul>
+                                    <li>实时预览渲染</li>
+                                    <li>支持多种主题</li>
+                                    <li>图表和数学公式</li>
+                                    <li>文件管理系统</li>
+                                </ul>
+                            </div>
+                            <a href="https://github.com/marktext/marktext" target="_blank" class="project-link">查看项目</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h2>Vue.js</h2>
+                    <div class="project-content">
+                        <div class="project-info">
+                            <div class="tech-stack">
+                                <h3>技术栈</h3>
+                                <ul>
+                                    <li>JavaScript</li>
+                                    <li>响应式系统</li>
+                                    <li>组件化开发</li>
+                                    <li>虚拟DOM</li>
+                                </ul>
+                            </div>
+                            <div class="project-description">
+                                <h3>项目介绍</h3>
+                                <p>深入学习的渐进式JavaScript框架：</p>
+                                <ul>
+                                    <li>响应式数据绑定</li>
+                                    <li>组件化开发体系</li>
+                                    <li>强大的生态系统</li>
+                                    <li>优秀的开发体验</li>
+                                </ul>
+                            </div>
+                            <a href="https://github.com/vuejs/vue" target="_blank" class="project-link">查看项目</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h2>vscode</h2>
+                    <div class="project-content">
+                        <div class="project-info">
+                            <div class="tech-stack">
+                                <h3>技术栈</h3>
+                                <ul>
+                                    <li>TypeScript</li>
+                                    <li>编辑器引擎</li>
+                                    <li>插件系统</li>
+                                    <li>调试工具</li>
+                                </ul>
+                            </div>
+                            <div class="project-description">
+                                <h3>项目介绍</h3>
+                                <p>日常使用的强大代码编辑器：</p>
+                                <ul>
+                                    <li>智能代码补全</li>
+                                    <li>丰富的插件生态</li>
+                                    <li>集成开发体验</li>
+                                    <li>跨平台支持</li>
+                                </ul>
+                            </div>
+                            <a href="https://github.com/microsoft/vscode" target="_blank" class="project-link">查看项目</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
     </main>
 
@@ -120,5 +494,15 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="js/particle-animation.js"></script>
+    <script>
+        // 动画完成后移除 intro-animation 元素
+        setTimeout(() => {
+            const intro = document.querySelector('.intro-animation');
+            if (intro) {
+                intro.parentElement.removeChild(intro);
+            }
+        }, 2000); // 缩短动画时间
+    </script>
 </body>
 </html>

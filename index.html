@@ -7,6 +7,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="intro-animation">
+        <div class="intro-text">
+            <span>k</span>
+            <span>i</span>
+            <span>r</span>
+            <span>i</span>
+            <span>n</span>
+            <span>b</span>
+            <span>a</span>
+            <span>o</span>
+        </div>
+        <div class="loading-bar">
+            <span>🦒</span>
+            <span>🦁</span>
+            <span>🐯</span>
+            <span>🦊</span>
+            <span>🐱</span>
+            <span>🐨</span>
+            <span>🦄</span>
+            <span>🦌</span>
+        </div>
+    </div>
     <div class="cursor-trail"></div>
     <div class="cartoon-character">
         <div class="character-body">
@@ -21,6 +43,7 @@
         <div class="container">
             <ul class="nav-links">
                 <li><a href="gallery/index.html" class="nav-link">画廊</a></li>
+                <li><a href="neighborhood/index.html" class="nav-link">邻居</a></li>
                 <li><a href="dashboard.html" class="nav-link">统计</a></li>
                 <li><a href="projects.html" class="nav-link">项目</a></li>
             </ul>
@@ -30,7 +53,7 @@
         <div class="container">
             <div class="profile">
                 <div class="profile-image-container">
-                    <img src="https://avatars.githubusercontent.com/u/185696434?v=4" alt="Qilin Bro" class="profile-image">
+                    <img src="images/kirinbao.jpg" alt="QilinBao" class="profile-image">
                 </div>
                 <h1>Qilin Bro</h1>
                 <p class="bio">Software Developer & Engineer</p>
@@ -155,5 +178,15 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="js/particle-animation.js"></script>
+    <script>
+        // 动画完成后移除 intro-animation 元素
+        setTimeout(() => {
+            const intro = document.querySelector('.intro-animation');
+            if (intro) {
+                intro.parentElement.removeChild(intro);
+            }
+        }, 2500); // 缩短动画时间
+    </script>
 </body>
 </html>
