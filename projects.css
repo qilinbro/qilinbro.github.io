@@ -450,14 +450,14 @@ body > *:not(.intro-animation) {
 }
 
 .code-header::after {
-    content: '▼';
+    content: '展开 / 收起';
     font-size: 12px;
-    color: #888;
-    transition: transform 0.3s ease;
+    color: rgba(33, 51, 45, 0.62);
+    letter-spacing: 0.08em;
 }
 
 .collapsed .code-header::after {
-    transform: rotate(-90deg);
+    transform: none;
 }
 
 .code-content {
