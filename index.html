@@ -1,9 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kirin bao - Personal Portfolio</title>
+    <meta name="description" content="Qilin Bro 的个人主页：全栈开发学习、机械工程探索、项目作品与编程统计。">
+    <link rel="canonical" href="https://qilinbro.github.io/">
+    <meta property="og:title" content="Qilin Bro | Personal Portfolio">
+    <meta property="og:description" content="全栈开发学习、机械工程探索、项目作品与编程统计。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://qilinbro.github.io/">
+    <title>Qilin Bro | Personal Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -53,14 +59,14 @@
         <div class="container">
             <div class="profile">
                 <div class="profile-image-container">
-                    <img src="images/kirinbao.jpg" alt="QilinBao" class="profile-image">
+                    <img src="images/kirinbao.jpg" alt="Qilin Bro profile photo" class="profile-image" width="180" height="180">
                 </div>
                 <h1>Qilin Bro</h1>
-                <p class="bio">Software Developer & Engineer</p>
+                <p class="bio">Student · Future Full-stack Developer · Mechanical Engineer</p>
             </div>
             <div class="background-controls">
-                <button id="prevBg" class="bg-control">&lt;</button>
-                <button id="nextBg" class="bg-control">&gt;</button>
+                <button id="prevBg" class="bg-control" type="button" aria-label="切换到上一张背景">&lt;</button>
+                <button id="nextBg" class="bg-control" type="button" aria-label="切换到下一张背景">&gt;</button>
             </div>
         </div>
     </header>
@@ -69,7 +75,7 @@
         <div class="container">
             <section class="about">
                 <h2>About Me</h2>
-                <p>Hi there! I'm a passionate software engineer specializing in web development and system architecture. I love building elegant solutions to complex problems and constantly learning new technologies.</p>
+                <p>Hi there! I'm Qilin Bro, a student exploring full-stack development and mechanical engineering. I enjoy building useful tools, visual experiments, and elegant solutions while keeping curiosity alive.</p>
             </section>
 
             <section class="stats">
@@ -77,10 +83,12 @@
                 <div class="stats-preview">
                     <div class="charts-container">
                         <figure>
-                            <embed src="https://wakatime.com/share/@ec44fecf-e2f0-4f10-b281-af54555dfc52/2f8d95e8-e9d0-4898-838e-23bf6a7707d2.svg"></embed>
+                            <figcaption class="sr-only">WakaTime 编程语言统计</figcaption>
+                            <embed src="https://wakatime.com/share/@ec44fecf-e2f0-4f10-b281-af54555dfc52/2f8d95e8-e9d0-4898-838e-23bf6a7707d2.svg" title="WakaTime 编程语言统计"></embed>
                         </figure>
                         <figure>
-                            <embed src="https://wakatime.com/share/@ec44fecf-e2f0-4f10-b281-af54555dfc52/e87422f7-933b-4283-ba9c-4fedfd4c3fc9.svg"></embed>
+                            <figcaption class="sr-only">WakaTime 编程时间统计</figcaption>
+                            <embed src="https://wakatime.com/share/@ec44fecf-e2f0-4f10-b281-af54555dfc52/e87422f7-933b-4283-ba9c-4fedfd4c3fc9.svg" title="WakaTime 编程时间统计"></embed>
                         </figure>
                     </div>
                 </div>
@@ -94,7 +102,7 @@
                             <div class="project-card-front">
                                 <h3>PyQt-Zhihu</h3>
                                 <p>基于PyQt6开发的知乎客户端，支持内容浏览和下载。</p>
-                                <a href="https://github.com/qilinbro/PyQt-Zhihu" target="_blank" class="project-link">查看项目</a>
+                                <a href="https://github.com/qilinbro/PyQt-Zhihu" target="_blank" rel="noopener noreferrer" class="project-link">查看项目</a>
                             </div>
                             <div class="project-card-back">
                                 <h3>技术栈</h3>
@@ -111,7 +119,7 @@
                             <div class="project-card-front">
                                 <h3>TOF-Acquisition</h3>
                                 <p>TOF相机数据采集和处理软件，支持实时数据处理。</p>
-                                <a href="https://github.com/qilinbro/TOF-Acquisition" target="_blank" class="project-link">查看项目</a>
+                                <a href="https://github.com/qilinbro/TOF-Acquisition" target="_blank" rel="noopener noreferrer" class="project-link">查看项目</a>
                             </div>
                             <div class="project-card-back">
                                 <h3>技术栈</h3>
@@ -128,7 +136,7 @@
                             <div class="project-card-front">
                                 <h3>MCF-Manager</h3>
                                 <p>民事法律文书电子化管理系统，提供文件转换和管理功能。</p>
-                                <a href="https://github.com/qilinbro/MCF-Manager" target="_blank" class="project-link">查看项目</a>
+                                <a href="https://github.com/qilinbro/MCF-Manager" target="_blank" rel="noopener noreferrer" class="project-link">查看项目</a>
                             </div>
                             <div class="project-card-back">
                                 <h3>技术栈</h3>
@@ -166,10 +174,14 @@
         <div class="container">
             <div class="social-links">
                 <div class="social-link-container">
-                    <a href="https://github.com/qilinbro" target="_blank" class="social-link" data-tooltip="查看我的开源项目">GitHub</a>
-                    <a href="mailto:qilinxie@gmail.com" class="social-link" data-tooltip="发送邮件给我">Gmail</a>
-                    <a href="https://twitter.com/gfnjmh" target="_blank" class="social-link" data-tooltip="在X上关注我">X</a>
+                    <a href="https://github.com/qilinbro" target="_blank" rel="noopener noreferrer" class="social-link" data-tooltip="查看我的开源项目">GitHub</a>
+                    <a href="mailto:qilinxie05@gmail.com" class="social-link" data-tooltip="发送邮件给我">Email</a>
+                    <a href="https://www.instagram.com/kirenxie/" target="_blank" rel="noopener noreferrer" class="social-link" data-tooltip="Instagram: kirenxie">Instagram</a>
+                    <a href="https://www.douyin.com/user/MS4wLjABAAAAljkXghE_MVrQ_LuS8sIMHVW2Ysq53ijNNZAPqfyvF5WY56izdfcCfR3o91V9P5G6?from_tab_name=main" target="_blank" rel="noopener noreferrer" class="social-link" data-tooltip="抖音: 35503009597">抖音</a>
+                    <a href="https://www.youtube.com/@kirenbro" target="_blank" rel="noopener noreferrer" class="social-link" data-tooltip="YouTube: kirenbro">YouTube</a>
                     <a href="dashboard.html" class="social-link" data-tooltip="查看我的编程统计">统计</a>
+                    <span class="social-link" data-tooltip="微信号 kirinbro">WeChat: kirinbro</span>
+                    <span class="social-link" data-tooltip="小红书 RedNote">RedNote: 42271875144</span>
                     <span class="social-link" data-tooltip="添加我的QQ">QQ: 3221565903</span>
                 </div>
             </div>

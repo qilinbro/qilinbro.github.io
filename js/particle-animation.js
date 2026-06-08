@@ -1,12 +1,18 @@
 class ParticleAnimation {
     constructor() {
+        this.reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        this.isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
+
+        if (this.reduceMotion) return;
+
         this.canvas = document.createElement('canvas');
         this.ctx = this.canvas.getContext('2d');
         this.particles = [];
         this.mousePos = { x: 0, y: 0 };
-        this.lastMousePos = { x: 0, y: 0 };
-        this.mouseMoveThrottle = 300; // 减少气泡产生频率
+        this.mouseMoveThrottle = this.isSmallScreen ? 600 : 300;
         this.lastMouseMoveTime = 0;
+        this.minParticles = this.isSmallScreen ? 12 : 30;
+        this.initialParticles = this.isSmallScreen ? 18 : 50;
 
         this.init();
         this.createInitialParticles();
@@ -14,7 +20,6 @@ class ParticleAnimation {
     }
 
     init() {
-        // 设置canvas样式
         this.canvas.style.position = 'fixed';
         this.canvas.style.top = '0';
         this.canvas.style.left = '0';
@@ -22,21 +27,22 @@ class ParticleAnimation {
         this.canvas.style.height = '100%';
         this.canvas.style.pointerEvents = 'none';
         this.canvas.style.zIndex = '-1';
+        this.canvas.setAttribute('aria-hidden', 'true');
         document.body.appendChild(this.canvas);
 
-        // 设置canvas大小
         this.resizeCanvas();
         window.addEventListener('resize', () => this.resizeCanvas());
 
-        // 鼠标事件
-        window.addEventListener('mousemove', (e) => {
-            const currentTime = Date.now();
-            if (currentTime - this.lastMouseMoveTime > this.mouseMoveThrottle) {
-                this.mousePos = { x: e.clientX, y: e.clientY };
-                this.createParticleAtMouse();
-                this.lastMouseMoveTime = currentTime;
-            }
-        });
+        if (!this.isSmallScreen) {
+            window.addEventListener('mousemove', (e) => {
+                const currentTime = Date.now();
+                if (currentTime - this.lastMouseMoveTime > this.mouseMoveThrottle) {
+                    this.mousePos = { x: e.clientX, y: e.clientY };
+                    this.createParticleAtMouse();
+                    this.lastMouseMoveTime = currentTime;
+                }
+            });
+        }
     }
 
     resizeCanvas() {
@@ -45,8 +51,7 @@ class ParticleAnimation {
     }
 
     createInitialParticles() {
-        // 创建初始粒子
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < this.initialParticles; i++) {
             this.particles.push(this.createParticle(
                 Math.random() * this.canvas.width,
                 Math.random() * this.canvas.height
@@ -68,14 +73,11 @@ class ParticleAnimation {
             update: function() {
                 this.x += this.speedX;
                 this.y += this.speedY;
-                
-                // 粒子物理效果
-                this.speedY += 0.02; // 重力
-                this.speedX *= 0.99; // 摩擦力
+                this.speedY += 0.02;
+                this.speedX *= 0.99;
                 this.size = this.originalSize * this.life;
                 this.life *= 0.99;
 
-                // 边界检查
                 if (this.y > window.innerHeight) {
                     this.speedY = -this.speedY * 0.6;
                     this.y = window.innerHeight;
@@ -85,11 +87,8 @@ class ParticleAnimation {
     }
 
     createParticleAtMouse() {
-        for (let i = 0; i < 3; i++) {
-            this.particles.push(this.createParticle(
-                this.mousePos.x,
-                this.mousePos.y
-            ));
+        for (let i = 0; i < 2; i++) {
+            this.particles.push(this.createParticle(this.mousePos.x, this.mousePos.y));
         }
     }
 
@@ -101,27 +100,22 @@ class ParticleAnimation {
     }
 
     animate() {
-        // 清空画布
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        // 更新和绘制粒子
         this.particles = this.particles.filter(particle => {
             particle.update();
             this.drawParticle(particle);
             return particle.life > 0.01;
         });
 
-        // 保持粒子数量在合理范围
-        while (this.particles.length < 30) {
+        while (this.particles.length < this.minParticles) {
             this.particles.push(this.createParticle(
                 Math.random() * this.canvas.width,
                 Math.random() * this.canvas.height
             ));
         }
 
-        // 粒子之间的连线效果
         this.drawParticleConnections();
-
         requestAnimationFrame(() => this.animate());
     }
 
@@ -145,7 +139,6 @@ class ParticleAnimation {
     }
 }
 
-// 页面加载完成后初始化
 document.addEventListener('DOMContentLoaded', () => {
     new ParticleAnimation();
 });

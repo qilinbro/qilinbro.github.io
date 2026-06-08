@@ -942,3 +942,75 @@ h2::after {
         font-size: 1.5rem;
     }
 }
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.project-link-disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .nav-link {
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
+    }
+
+    .cartoon-character,
+    .cursor-trail,
+    .background-controls {
+        display: none;
+    }
+
+    .social-link-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    .social-link {
+        margin: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    body > *:not(.intro-animation),
+    .profile-image-container,
+    .profile h1,
+    .bio,
+    .nav-links li {
+        opacity: 1 !important;
+    }
+
+    .intro-animation,
+    .cursor-trail,
+    .cartoon-character,
+    .background-controls {
+        display: none !important;
+    }
+}

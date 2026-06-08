@@ -1,14 +1,18 @@
 class FloatingBackground {
     constructor() {
-        this.shapes = [];
+        this.reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        this.isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
+
+        if (this.reduceMotion || this.isSmallScreen) return;
+
         this.container = document.createElement('div');
         this.container.className = 'floating-background';
+        this.container.setAttribute('aria-hidden', 'true');
         document.body.appendChild(this.container);
         this.init();
     }
 
     init() {
-        // 添加基础样式
         const style = document.createElement('style');
         style.textContent = `
             .floating-background {
@@ -37,9 +41,8 @@ class FloatingBackground {
         `;
         document.head.appendChild(style);
 
-        // 监听鼠标移动
         let lastTime = 0;
-        const throttleDelay = 150; // 节流延迟
+        const throttleDelay = 220;
 
         document.addEventListener('mousemove', (e) => {
             const currentTime = Date.now();
@@ -48,50 +51,34 @@ class FloatingBackground {
                 lastTime = currentTime;
             }
         });
-
-        // 监听触摸移动
-        document.addEventListener('touchmove', (e) => {
-            const touch = e.touches[0];
-            const currentTime = Date.now();
-            if (currentTime - lastTime >= throttleDelay) {
-                this.createShape(touch.clientX, touch.clientY);
-                lastTime = currentTime;
-            }
-        }, { passive: true });
     }
 
     createShape(x, y) {
         const shape = document.createElement('div');
         shape.className = 'floating-shape';
-        
-        // 随机大小和持续时间
-        const size = Math.random() * 100 + 50;
-        const duration = Math.random() * 2000 + 2000;
-        
+
+        const size = Math.random() * 80 + 40;
+        const duration = Math.random() * 1800 + 1800;
+
         shape.style.width = `${size}px`;
         shape.style.height = `${size}px`;
         shape.style.left = `${x}px`;
         shape.style.top = `${y}px`;
 
         this.container.appendChild(shape);
-        
-        // 触发重绘以启动动画
+
         setTimeout(() => shape.classList.add('visible'), 10);
 
-        // 移除元素
         setTimeout(() => {
             shape.style.opacity = '0';
             shape.style.transform = 'translate(-50%, -50%) scale(0.5)';
             setTimeout(() => {
-                if (shape.parentNode) {
-                    shape.parentNode.removeChild(shape);
-                }
+                shape.remove();
             }, 800);
         }, duration);
     }
 }
 
-// 页面加载完成后初始化
 document.addEventListener('DOMContentLoaded', () => {
     new FloatingBackground();
 });
