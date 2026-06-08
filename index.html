@@ -3,189 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Qilin Bro 的个人主页：全栈开发学习、机械工程探索、项目作品与编程统计。">
+    <meta name="description" content="Kirin 的个人 Blog：记录全栈开发学习、机械工程思考、项目日志与生活灵感。">
     <link rel="canonical" href="https://qilinbro.github.io/">
-    <meta property="og:title" content="Qilin Bro | Personal Portfolio">
-    <meta property="og:description" content="全栈开发学习、机械工程探索、项目作品与编程统计。">
+    <meta property="og:title" content="Kirin | Field Notes">
+    <meta property="og:description" content="代码、机械、工具与成长路上的工程手账。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://qilinbro.github.io/">
-    <title>Qilin Bro | Personal Portfolio</title>
+    <title>Kirin | Field Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="intro-animation">
-        <div class="intro-text">
-            <span>k</span>
-            <span>i</span>
-            <span>r</span>
-            <span>i</span>
-            <span>n</span>
-            <span>b</span>
-            <span>a</span>
-            <span>o</span>
-        </div>
-        <div class="loading-bar">
-            <span>🦒</span>
-            <span>🦁</span>
-            <span>🐯</span>
-            <span>🦊</span>
-            <span>🐱</span>
-            <span>🐨</span>
-            <span>🦄</span>
-            <span>🦌</span>
-        </div>
-    </div>
-    <div class="cursor-trail"></div>
-    <nav class="main-nav">
-        <div class="container">
-            <ul class="nav-links">
-                <li><a href="gallery/index.html" class="nav-link">画廊</a></li>
-                <li><a href="neighborhood/index.html" class="nav-link">邻居</a></li>
-                <li><a href="dashboard.html" class="nav-link">统计</a></li>
-                <li><a href="projects.html" class="nav-link">项目</a></li>
-            </ul>
+<body class="home-page">
+    <a class="skip-link" href="#main">跳到正文</a>
+    <nav class="site-nav" aria-label="主导航">
+        <a class="brand-mark" href="index.html" aria-current="page">kirin<span>field notes</span></a>
+        <div class="nav-links">
+            <a href="blog.html">Notes</a>
+            <a href="projects.html">Projects</a>
+            <a href="dashboard.html">Stats</a>
+            <a href="gallery/index.html">Gallery</a>
+            <a href="neighborhood/index.html">Neighbors</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
-    <header class="header">
-        <div class="container">
-            <div class="profile">
-                <div class="profile-image-container">
-                    <img src="images/kirinbao.jpg" alt="Qilin Bro profile photo" class="profile-image" width="180" height="180">
+
+    <main id="main">
+        <header class="hero section-grid" data-reveal>
+            <div class="hero-copy">
+                <p class="eyebrow">Personal Blog / Mechanical Field Notes</p>
+                <h1>Kirin keeps field notes on code, machines, tools, and becoming a full-stack engineer.</h1>
+                <p class="hero-lede">Hi there! I'm Kirin — a student exploring full-stack development and mechanical engineering. I build useful tools, visual experiments, and elegant solutions while keeping curiosity alive.</p>
+                <div class="hero-actions">
+                    <a class="button primary" href="blog.html">Read the notes</a>
+                    <a class="button ghost" href="projects.html">Open lab archive</a>
                 </div>
-                <h1>Qilin Bro</h1>
-                <p class="bio">Student · Future Full-stack Developer · Mechanical Engineer</p>
             </div>
-        </div>
-    </header>
-
-    <main class="main">
-        <div class="container">
-            <section class="about">
-                <h2>About Me</h2>
-                <p>Hi there! I'm Qilin Bro, a student exploring full-stack development and mechanical engineering. I enjoy building useful tools, visual experiments, and elegant solutions while keeping curiosity alive.</p>
-            </section>
-
-            <section class="stats">
-                <h2>编程统计 <a href="dashboard.html" class="view-all">查看详情</a></h2>
-                <div class="stats-preview">
-                    <div class="charts-container">
-                        <figure>
-                            <figcaption class="sr-only">WakaTime 编程语言统计</figcaption>
-                            <embed src="https://wakatime.com/share/@ec44fecf-e2f0-4f10-b281-af54555dfc52/2f8d95e8-e9d0-4898-838e-23bf6a7707d2.svg" title="WakaTime 编程语言统计"></embed>
-                        </figure>
-                        <figure>
-                            <figcaption class="sr-only">WakaTime 编程时间统计</figcaption>
-                            <embed src="https://wakatime.com/share/@ec44fecf-e2f0-4f10-b281-af54555dfc52/e87422f7-933b-4283-ba9c-4fedfd4c3fc9.svg" title="WakaTime 编程时间统计"></embed>
-                        </figure>
-                    </div>
+            <aside class="specimen-card" aria-label="个人资料卡">
+                <div class="profile-image-container">
+                    <img src="images/kirinbao.jpg" alt="Kirin profile photo" class="profile-image" width="220" height="220">
                 </div>
-            </section>
+                <dl class="spec-list">
+                    <div><dt>alias</dt><dd>kirin</dd></div>
+                    <div><dt>status</dt><dd>Student</dd></div>
+                    <div><dt>domain</dt><dd>Full-stack / Mechanical</dd></div>
+                    <div><dt>mode</dt><dd>Learning in public</dd></div>
+                </dl>
+            </aside>
+        </header>
 
-            <section class="projects">
-                <h2>我的项目 <a href="projects.html" class="view-all">查看全部</a></h2>
-                <div class="project-grid">
-                    <div class="project-card">
-                        <div class="project-card-inner">
-                            <div class="project-card-front">
-                                <h3>PyQt-Zhihu</h3>
-                                <p>基于PyQt6开发的知乎客户端，支持内容浏览和下载。</p>
-                                <a href="https://github.com/qilinbro/PyQt-Zhihu" target="_blank" rel="noopener noreferrer" class="project-link">查看项目</a>
-                            </div>
-                            <div class="project-card-back">
-                                <h3>技术栈</h3>
-                                <ul>
-                                    <li>Python & PyQt6</li>
-                                    <li>Web爬虫技术</li>
-                                    <li>GUI应用开发</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-card-inner">
-                            <div class="project-card-front">
-                                <h3>TOF-Acquisition</h3>
-                                <p>TOF相机数据采集和处理软件，支持实时数据处理。</p>
-                                <a href="https://github.com/qilinbro/TOF-Acquisition" target="_blank" rel="noopener noreferrer" class="project-link">查看项目</a>
-                            </div>
-                            <div class="project-card-back">
-                                <h3>技术栈</h3>
-                                <ul>
-                                    <li>C++ & OpenCV</li>
-                                    <li>图像处理</li>
-                                    <li>USB通信</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-card-inner">
-                            <div class="project-card-front">
-                                <h3>MCF-Manager</h3>
-                                <p>民事法律文书电子化管理系统，提供文件转换和管理功能。</p>
-                                <a href="https://github.com/qilinbro/MCF-Manager" target="_blank" rel="noopener noreferrer" class="project-link">查看项目</a>
-                            </div>
-                            <div class="project-card-back">
-                                <h3>技术栈</h3>
-                                <ul>
-                                    <li>Python开发</li>
-                                    <li>电子文档处理</li>
-                                    <li>数据加密存储</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-card-inner">
-                            <div class="project-card-front">
-                                <h3>创意画廊</h3>
-                                <p>基于HTML5和CSS3开发的创意图片展示效果，支持触摸滑动。</p>
-                                <a href="gallery/index.html" class="project-link">查看画廊</a>
-                            </div>
-                            <div class="project-card-back">
-                                <h3>技术栈</h3>
-                                <ul>
-                                    <li>HTML5 & CSS3</li>
-                                    <li>JavaScript动画</li>
-                                    <li>响应式设计</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+        <section class="section-block" data-reveal>
+            <div class="section-heading">
+                <p class="eyebrow">Recent notebook entries</p>
+                <h2>Featured Notes</h2>
+                <a class="text-link" href="blog.html">全部文章 →</a>
+            </div>
+            <div class="post-grid featured-grid">
+                <article class="post-card is-featured" data-tags="Python GUI PyQt6">
+                    <span class="card-index">01</span>
+                    <p class="post-meta">Project Note · 2026.06.08 · 6 min</p>
+                    <h3><a href="posts/pyqt-zhihu.html">Building a PyQt6 Zhihu Client</a></h3>
+                    <p>把内容浏览、下载和桌面 GUI 结合起来：一个关于 PyQt6、爬虫与工具体验的项目记录。</p>
+                    <div class="tag-row"><span>Python</span><span>PyQt6</span><span>GUI</span></div>
+                </article>
+                <article class="post-card" data-tags="C++ OpenCV Hardware">
+                    <span class="card-index">02</span>
+                    <p class="post-meta">Lab Log · 2026.06.08 · 5 min</p>
+                    <h3><a href="posts/tof-acquisition.html">Capturing TOF Camera Data</a></h3>
+                    <p>从 USB 通信到实时图像处理，记录 TOF 相机采集软件背后的工程拆解。</p>
+                    <div class="tag-row"><span>C++</span><span>OpenCV</span><span>Hardware</span></div>
+                </article>
+                <article class="post-card" data-tags="Algorithm Python Visualization">
+                    <span class="card-index">03</span>
+                    <p class="post-meta">Algorithm · 2026.06.08 · 4 min</p>
+                    <h3><a href="posts/astar-pathfinding.html">Visualizing A* Pathfinding</a></h3>
+                    <p>把启发式、障碍物和路径回溯做成可观察的算法笔记，让抽象搜索变得可见。</p>
+                    <div class="tag-row"><span>Algorithm</span><span>Python</span><span>Path Planning</span></div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-block lab-section" data-reveal>
+            <div class="section-heading">
+                <p class="eyebrow">Artifacts from the workbench</p>
+                <h2>Lab Archive</h2>
+                <a class="text-link" href="projects.html">查看项目 →</a>
+            </div>
+            <div class="lab-grid">
+                <article class="lab-card">
+                    <p class="lab-status">Published</p>
+                    <h3>PyQt-Zhihu</h3>
+                    <p>基于 PyQt6 的知乎客户端，支持内容浏览和下载。</p>
+                    <a href="https://github.com/qilinbro/PyQt-Zhihu" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                </article>
+                <article class="lab-card">
+                    <p class="lab-status">Published</p>
+                    <h3>TOF-Acquisition</h3>
+                    <p>TOF 相机数据采集与实时处理软件，连接硬件、图像和工程调试。</p>
+                    <a href="https://github.com/qilinbro/TOF-Acquisition" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                </article>
+                <article class="lab-card">
+                    <p class="lab-status">Published</p>
+                    <h3>MCF-Manager</h3>
+                    <p>民事法律文书电子化管理系统，处理文件转换、管理和加密存储。</p>
+                    <a href="https://github.com/qilinbro/MCF-Manager" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                </article>
+                <article class="lab-card">
+                    <p class="lab-status">Experiment</p>
+                    <h3>Creative Gallery</h3>
+                    <p>HTML5、CSS3 与 JavaScript 组成的触摸滑动画廊实验。</p>
+                    <a href="gallery/index.html">View gallery →</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-block telemetry-section" data-reveal>
+            <div class="section-heading">
+                <p class="eyebrow">Coding telemetry</p>
+                <h2>Stats from the desk</h2>
+                <a class="text-link" href="dashboard.html">详细统计 →</a>
+            </div>
+            <div class="charts-container">
+                <figure>
+                    <figcaption class="sr-only">WakaTime 编程语言统计</figcaption>
+                    <embed src="https://wakatime.com/share/@ec44fecf-e2f0-4f10-b281-af54555dfc52/2f8d95e8-e9d0-4898-838e-23bf6a7707d2.svg" title="WakaTime 编程语言统计"></embed>
+                </figure>
+                <figure>
+                    <figcaption class="sr-only">WakaTime 编程时间统计</figcaption>
+                    <embed src="https://wakatime.com/share/@ec44fecf-e2f0-4f10-b281-af54555dfc52/e87422f7-933b-4283-ba9c-4fedfd4c3fc9.svg" title="WakaTime 编程时间统计"></embed>
+                </figure>
+            </div>
+        </section>
+
+        <section class="section-block" data-reveal>
+            <div class="section-heading">
+                <p class="eyebrow">README data board</p>
+                <h2>GitHub signals</h2>
+                <a class="text-link" href="dashboard.html">全部图表 →</a>
+            </div>
+            <div class="github-chart-grid home-chart-grid">
+                <article class="github-chart-card wide">
+                    <h3>GitHub Stats</h3>
+                    <picture>
+                        <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-sigma-five.vercel.app/api?username=qilinbro&show_icons=true&theme=tokyonight&hide_border=true&locale=cn&bg_color=0000">
+                        <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=qilinbro&show_icons=true&hide_border=true&locale=cn&bg_color=0000" alt="Kirin GitHub stats" loading="lazy">
+                    </picture>
+                </article>
+                <article class="github-chart-card wide">
+                    <h3>Top Languages</h3>
+                    <picture>
+                        <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=qilinbro&layout=compact&theme=tokyonight&hide_border=true&locale=cn&bg_color=0000">
+                        <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=qilinbro&layout=compact&hide_border=true&locale=cn&bg_color=0000" alt="Kirin top languages" loading="lazy">
+                    </picture>
+                </article>
+                <article class="github-chart-card full">
+                    <h3>Activity Graph</h3>
+                    <picture>
+                        <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=qilinbro&theme=tokyo-night&hide_border=true&bg_color=0000">
+                        <img src="https://github-readme-activity-graph.vercel.app/graph?username=qilinbro&theme=github-light&hide_border=true&bg_color=0000" alt="Kirin GitHub activity graph" loading="lazy">
+                    </picture>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-block" data-reveal>
+            <div class="section-heading">
+                <p class="eyebrow">Visual notebook</p>
+                <h2>Images between builds</h2>
+                <a class="text-link" href="gallery/index.html">打开画廊 →</a>
+            </div>
+            <div class="gallery-strip">
+                <img src="gallery/assets/image/1.png" alt="画廊作品缩略图 1" loading="lazy">
+                <img src="gallery/assets/image/2.png" alt="画廊作品缩略图 2" loading="lazy">
+                <img src="gallery/assets/image/3.png" alt="画廊作品缩略图 3" loading="lazy">
+                <img src="gallery/assets/image/4.png" alt="画廊作品缩略图 4" loading="lazy">
+                <img src="gallery/assets/image/5.png" alt="画廊作品缩略图 5" loading="lazy">
+                <img src="gallery/assets/image/6.png" alt="画廊作品缩略图 6" loading="lazy">
+            </div>
+        </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="social-links">
-                <div class="social-link-container">
-                    <a href="https://github.com/qilinbro" target="_blank" rel="noopener noreferrer" class="social-link" data-tooltip="查看我的开源项目">GitHub</a>
-                    <a href="mailto:qilinxie05@gmail.com" class="social-link" data-tooltip="发送邮件给我">Email</a>
-                    <a href="https://www.instagram.com/kirenxie/" target="_blank" rel="noopener noreferrer" class="social-link" data-tooltip="Instagram: kirenxie">Instagram</a>
-                    <a href="https://www.douyin.com/user/MS4wLjABAAAAljkXghE_MVrQ_LuS8sIMHVW2Ysq53ijNNZAPqfyvF5WY56izdfcCfR3o91V9P5G6?from_tab_name=main" target="_blank" rel="noopener noreferrer" class="social-link" data-tooltip="抖音: 35503009597">抖音</a>
-                    <a href="https://www.youtube.com/@kirenbro" target="_blank" rel="noopener noreferrer" class="social-link" data-tooltip="YouTube: kirenbro">YouTube</a>
-                    <a href="dashboard.html" class="social-link" data-tooltip="查看我的编程统计">统计</a>
-                    <span class="social-link" data-tooltip="微信号 kirinbro">WeChat: kirinbro</span>
-                    <span class="social-link" data-tooltip="小红书 RedNote">RedNote: 42271875144</span>
-                    <span class="social-link" data-tooltip="添加我的QQ">QQ: 3221565903</span>
-                </div>
-            </div>
-            <p class="copyright">&copy; 2025 Qilin Bro. All rights reserved.</p>
+    <footer id="contact" class="site-footer" data-reveal>
+        <div>
+            <p class="eyebrow">Contact console</p>
+            <h2>Let's connect.</h2>
+            <p>如果你也喜欢代码、机械结构、工具实验或者个人网站，欢迎来交换笔记。</p>
         </div>
+        <div class="contact-grid">
+            <a href="https://github.com/qilinbro" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="mailto:qilinxie05@gmail.com">Email</a>
+            <a href="https://www.instagram.com/kirenxie/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.douyin.com/user/MS4wLjABAAAAljkXghE_MVrQ_LuS8sIMHVW2Ysq53ijNNZAPqfyvF5WY56izdfcCfR3o91V9P5G6?from_tab_name=main" target="_blank" rel="noopener noreferrer">抖音</a>
+            <a href="https://www.youtube.com/@kirenbro" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <button type="button" data-copy="kirinbro">WeChat: kirinbro</button>
+            <button type="button" data-copy="42271875144">RedNote: 42271875144</button>
+            <button type="button" data-copy="3221565903">QQ: 3221565903</button>
+        </div>
+        <p class="copyright">© 2026 Kirin. Built as static field notes on GitHub Pages.</p>
     </footer>
 
     <script src="script.js"></script>
-    <script src="js/particle-animation.js"></script>
-    <script>
-        // 动画完成后移除 intro-animation 元素
-        setTimeout(() => {
-            const intro = document.querySelector('.intro-animation');
-            if (intro) {
-                intro.parentElement.removeChild(intro);
-            }
-        }, 2500); // 缩短动画时间
-    </script>
 </body>
 </html>

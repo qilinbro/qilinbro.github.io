@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kirin 的技术手账归档，记录 Python、GUI、算法、机械工程与全栈学习。">
+    <link rel="canonical" href="https://qilinbro.github.io/blog.html">
+    <meta property="og:title" content="Field Notes | Kirin">
+    <meta property="og:description" content="代码、机械、工具与学习过程的个人技术手账。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://qilinbro.github.io/blog.html">
+    <title>Field Notes | Kirin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    <nav class="site-nav" aria-label="主导航">
+        <a class="brand-mark" href="index.html">kirin<span>field notes</span></a>
+        <div class="nav-links">
+            <a href="blog.html" aria-current="page">Notes</a>
+            <a href="projects.html">Projects</a>
+            <a href="dashboard.html">Stats</a>
+            <a href="gallery/index.html">Gallery</a>
+            <a href="neighborhood/index.html">Neighbors</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+
+    <main id="main">
+        <header class="page-hero" data-reveal>
+            <p class="eyebrow">Archive / 技术手账</p>
+            <h1>Field Notes</h1>
+            <p>这里存放 Kirin 关于代码、机械、工具、算法和学习过程的记录。它们来自已有项目，也来自正在形成的工程直觉。</p>
+        </header>
+
+        <section class="archive-layout section-block" data-reveal aria-label="文章筛选">
+            <div class="filter-bar">
+                <button class="filter-chip" type="button" data-filter="all" aria-pressed="true">All</button>
+                <button class="filter-chip" type="button" data-filter="Python" aria-pressed="false">Python</button>
+                <button class="filter-chip" type="button" data-filter="GUI" aria-pressed="false">GUI</button>
+                <button class="filter-chip" type="button" data-filter="C++" aria-pressed="false">C++</button>
+                <button class="filter-chip" type="button" data-filter="Mechanical" aria-pressed="false">Mechanical</button>
+                <button class="filter-chip" type="button" data-filter="Algorithm" aria-pressed="false">Algorithm</button>
+            </div>
+        </section>
+
+        <section class="post-grid section-block" data-reveal aria-label="文章列表">
+            <article class="post-card" data-tags="Python GUI PyQt6">
+                <span class="card-index">01</span>
+                <p class="post-meta">Project Note · 2026.06.08 · 6 min</p>
+                <h3><a href="posts/pyqt-zhihu.html">Building a PyQt6 Zhihu Client</a></h3>
+                <p>一次把内容浏览、下载、桌面界面和工具体验放在一起的 Python GUI 练习。</p>
+                <div class="tag-row"><span>Python</span><span>GUI</span><span>PyQt6</span></div>
+            </article>
+            <article class="post-card" data-tags="C++ OpenCV Hardware">
+                <span class="card-index">02</span>
+                <p class="post-meta">Lab Log · 2026.06.08 · 5 min</p>
+                <h3><a href="posts/tof-acquisition.html">Capturing TOF Camera Data</a></h3>
+                <p>记录 TOF 相机采集软件如何连接硬件通信、实时处理和可观察调试。</p>
+                <div class="tag-row"><span>C++</span><span>OpenCV</span><span>Hardware</span></div>
+            </article>
+            <article class="post-card" data-tags="Python Documents Workflow">
+                <span class="card-index">03</span>
+                <p class="post-meta">Workflow · 2026.06.08 · 4 min</p>
+                <h3><a href="posts/mcf-manager.html">Managing Electronic Legal Documents</a></h3>
+                <p>从格式转换、文件管理到加密存储，拆解一个文书管理工具的设计。</p>
+                <div class="tag-row"><span>Python</span><span>Workflow</span><span>Documents</span></div>
+            </article>
+            <article class="post-card" data-tags="Algorithm Python Visualization">
+                <span class="card-index">04</span>
+                <p class="post-meta">Algorithm · 2026.06.08 · 4 min</p>
+                <h3><a href="posts/astar-pathfinding.html">Visualizing A* Pathfinding</a></h3>
+                <p>把 A* 的启发式、开放集、障碍物和路径回溯变成更容易理解的可视化记录。</p>
+                <div class="tag-row"><span>Algorithm</span><span>Python</span><span>Visualization</span></div>
+            </article>
+            <article class="post-card" data-tags="Python Image Processing Automation">
+                <span class="card-index">05</span>
+                <p class="post-meta">Tool Note · 2026.06.08 · 3 min</p>
+                <h3><a href="posts/image-grid-generator.html">Generating Image Grids with Python</a></h3>
+                <p>一个关于批量图片排版、自动化和“小工具如何节省重复劳动”的笔记。</p>
+                <div class="tag-row"><span>Python</span><span>Image</span><span>Automation</span></div>
+            </article>
+            <article class="post-card" data-tags="Mechanical Learning Full-stack">
+                <span class="card-index">06</span>
+                <p class="post-meta">Essay · 2026.06.08 · 4 min</p>
+                <h3><a href="posts/mechanical-to-fullstack.html">From Mechanical Engineering to Full-stack</a></h3>
+                <p>机械工程的结构思维，如何影响我学习前端、后端和工具系统的方式。</p>
+                <div class="tag-row"><span>Mechanical</span><span>Learning</span><span>Full-stack</span></div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div>
+            <p class="eyebrow">End of archive</p>
+            <h2>Keep building.</h2>
+        </div>
+        <div class="contact-grid">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="dashboard.html">Stats</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+        <p class="copyright">© 2026 Kirin.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

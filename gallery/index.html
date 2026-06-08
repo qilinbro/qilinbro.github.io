@@ -3,188 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Qilin Bro 的创意画廊，展示生活、作品与灵感瞬间。">
+    <meta name="description" content="Kirin 的创意画廊，展示生活、作品与灵感瞬间。">
     <link rel="canonical" href="https://qilinbro.github.io/gallery/">
-    <meta property="og:title" content="创意画廊 | Qilin Bro">
-    <meta property="og:description" content="Qilin Bro 的创意画廊，展示生活、作品与灵感瞬间。">
+    <meta property="og:title" content="Visual Notebook | Kirin">
+    <meta property="og:description" content="Kirin 的视觉手账，展示生活、作品与灵感瞬间。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://qilinbro.github.io/gallery/">
-    <title>创意画廊 | Qilin Bro</title>
+    <title>Visual Notebook | Kirin</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <div class="intro-animation">
-        <div class="intro-text">
-            <span>l</span>
-            <span>i</span>
-            <span>v</span>
-            <span>i</span>
-            <span>n</span>
-            <span>g</span>
-            <span>&nbsp;</span>
-            <span>t</span>
-            <span>i</span>
-            <span>m</span>
-            <span>e</span>
-        </div>
-        <div class="loading-bar">
-            <span>🎨</span>
-            <span>🎭</span>
-            <span>🎪</span>
-            <span>🎬</span>
-            <span>🎮</span>
-            <span>🎯</span>
-            <span>🎲</span>
-            <span>🎭</span>
-        </div>
-    </div>
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <a href="../index.html" class="nav-link">返回首页</a>
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../blog.html" class="nav-link">Notes</a>
+                <a href="../projects.html" class="nav-link">Projects</a>
             </nav>
-            <h1 class="title">我的作品集 📸</h1>
+            <h1 class="title">Visual Notebook</h1>
+            <p class="gallery-intro">生活、作品与灵感瞬间，像夹在工程手账里的照片。</p>
         </div>
     </header>
-    <div id="banner">
-        <div class="img-list img-wrapper">
-            <div class="img-box">
-                <img src="assets/image/1.png" alt="画廊作品 1" loading="lazy">
-            </div>
-            <div class="img-box">
-                <img src="assets/image/2.png" alt="画廊作品 2" loading="lazy">
-            </div>
-            <div class="img-box">
-                <img src="assets/image/3.png" alt="画廊作品 3" loading="lazy">
-            </div>
-            <div class="img-box">
-                <img src="assets/image/4.png" alt="画廊作品 4" loading="lazy">
-            </div>
-            <div class="img-box">
-                <img src="assets/image/5.png" alt="画廊作品 5" loading="lazy">
-            </div>
-            <div class="img-box" id="last-img-box">
-                <img src="assets/image/6.png" alt="画廊作品 6" loading="lazy">
-            </div>
-        </div>
-    </div>
-    <script>
-        const imgListOne = document.querySelector('.img-list')
-        let imgBoxList = Array.prototype.slice.call(document.querySelectorAll('.img-list .img-box'))
-        const imgBoxCount = imgBoxList.length
-        const root = document.documentElement;
-        const lastImgBox = document.getElementById('last-img-box')
-
-        const postSpacing = Number(getComputedStyle(root).getPropertyValue('--post-spacing').replace("vw", ""));
-        const postSize = Number(getComputedStyle(root).getPropertyValue('--post-size').replace("vw", ""));
-
-        let imgBoxLength = postSize + postSpacing
-        let index = 0
-        let animationTime = 0.5
-        
-        imgBoxList.unshift(imgBoxList.pop())
-        imgListOne.style.transition = animationTime + 's ease'
-
-        function moveSlide(direction) {
-            if (direction === 'next') {
-                index--
-            } else {
-                index++
-                imgBoxList.unshift(imgBoxList.pop())
-            }
-
-            imgListOne.style.left = imgBoxLength * index + "vw";
-            
-            if (Math.abs(index) >= imgBoxCount) {
-                index = 0
-                setTimeout(() => {
-                    imgListOne.style.transition = 'none'
-                    imgListOne.style.left = 0
-                    if (direction === 'next') {
-                        imgBoxList.push(imgBoxList.shift())
-                    }
-                    requestAnimationFrame(() => {
-                        imgListOne.style.transition = animationTime + 's ease'
-                    })
-                }, animationTime * 1000)
-            }
-        }
-
-        // 鼠标滑动事件
-        let isDragging = false;
-        let startX = 0;
-        let currentX = 0;
-        let initialOffset = 0;
-
-        imgListOne.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            startX = e.clientX;
-            currentX = startX;
-            initialOffset = parseFloat(imgListOne.style.left) || 0;
-            imgListOne.style.transition = 'none';
-        });
-
-        document.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            e.preventDefault();
-            currentX = e.clientX;
-            const diffX = (currentX - startX) / window.innerWidth * 100;
-            imgListOne.style.left = (initialOffset + diffX) + "vw";
-        });
-
-        document.addEventListener('mouseup', () => {
-            if (!isDragging) return;
-            isDragging = false;
-            
-            const diffX = currentX - startX;
-            const percentMoved = Math.abs(diffX) / window.innerWidth * 100;
-            
-            imgListOne.style.transition = animationTime + 's ease';
-            
-            if (percentMoved > 10) {
-                moveSlide(diffX > 0 ? 'last' : 'next');
-            } else {
-                imgListOne.style.left = initialOffset + "vw";
-            }
-        });
-
-        // 触摸事件
-        imgListOne.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            currentX = startX;
-            initialOffset = parseFloat(imgListOne.style.left) || 0;
-            imgListOne.style.transition = 'none';
-        });
-
-        imgListOne.addEventListener('touchmove', (e) => {
-            e.preventDefault();
-            currentX = e.touches[0].clientX;
-            const diffX = (currentX - startX) / window.innerWidth * 100;
-            imgListOne.style.left = (initialOffset + diffX) + "vw";
-        });
-
-        imgListOne.addEventListener('touchend', () => {
-            const diffX = currentX - startX;
-            const percentMoved = Math.abs(diffX) / window.innerWidth * 100;
-            
-            imgListOne.style.transition = animationTime + 's ease';
-            
-            if (percentMoved > 10) {
-                moveSlide(diffX > 0 ? 'last' : 'next');
-            } else {
-                imgListOne.style.left = initialOffset + "vw";
-            }
-        });
-    </script>
-    <script src="../js/particle-animation.js"></script>
-    <script>
-        // 动画完成后移除 intro-animation 元素
-        setTimeout(() => {
-            const intro = document.querySelector('.intro-animation');
-            if (intro) {
-                intro.parentElement.removeChild(intro);
-            }
-        }, 2500); // 缩短动画时间
-    </script>
+    <main class="gallery-page" aria-label="画廊作品">
+        <section class="vertical-gallery">
+            <figure class="gallery-photo"><img src="assets/image/1.png" alt="画廊作品 1" loading="lazy"></figure>
+            <figure class="gallery-photo"><img src="assets/image/2.png" alt="画廊作品 2" loading="lazy"></figure>
+            <figure class="gallery-photo"><img src="assets/image/3.png" alt="画廊作品 3" loading="lazy"></figure>
+            <figure class="gallery-photo"><img src="assets/image/4.png" alt="画廊作品 4" loading="lazy"></figure>
+            <figure class="gallery-photo"><img src="assets/image/5.png" alt="画廊作品 5" loading="lazy"></figure>
+            <figure class="gallery-photo"><img src="assets/image/6.png" alt="画廊作品 6" loading="lazy"></figure>
+            <figure class="gallery-photo"><img src="assets/image/d256b7a3946d350ab77eaeab6f4bfcbd.jpg" alt="画廊作品 7" loading="lazy"></figure>
+            <figure class="gallery-photo"><img src="assets/image/aee5a7c22788ac8d84382841f2e726ae.jpg" alt="画廊作品 8" loading="lazy"></figure>
+            <figure class="gallery-photo"><img src="assets/image/0e8e31fd51b958baaf0658f61ecde988.jpg" alt="画廊作品 9" loading="lazy"></figure>
+            <figure class="gallery-photo"><img src="assets/image/fc489798ce23007798e985236be74583.jpg" alt="画廊作品 10" loading="lazy"></figure>
+            <figure class="gallery-photo"><img src="assets/image/f6e03201e5766dcbd6215d7a90e31ac0.jpg" alt="画廊作品 11" loading="lazy"></figure>
+            <figure class="gallery-photo"><img src="assets/image/716b46b854b6003097976f080349df29.jpg" alt="画廊作品 12" loading="lazy"></figure>
+            <figure class="gallery-photo"><img src="assets/image/7bfe5fac49aa01941fa3d43e1ef793c9.jpg" alt="画廊作品 13" loading="lazy"></figure>
+            <figure class="gallery-photo"><img src="assets/image/24f9cdbaa608e265c88f141283eed5f0.jpg" alt="画廊作品 14" loading="lazy"></figure>
+            <figure class="gallery-photo"><img src="assets/image/aaf2e5d613a0537a4c3222d12f792bda.jpg" alt="画廊作品 15" loading="lazy"></figure>
+            <figure class="gallery-photo"><img src="assets/image/2f707becd93624b4d1415a2110adb209.jpg" alt="画廊作品 16" loading="lazy"></figure>
+            <figure class="gallery-photo"><img src="assets/image/13eefd288c680f5350e9e75a89422669.jpg" alt="画廊作品 17" loading="lazy"></figure>
+            <figure class="gallery-photo"><img src="assets/image/4336661ff5ce11d4cdc2fc729119ed8c.jpg" alt="画廊作品 18" loading="lazy"></figure>
+            <figure class="gallery-photo"><img src="assets/image/fc0b3a4f5f3145e029a61e9492abe08c.jpg" alt="画廊作品 19" loading="lazy"></figure>
+            <figure class="gallery-photo"><img src="assets/image/2cc9003108d25d3afd9fc1db6c05bc16.jpg" alt="画廊作品 20" loading="lazy"></figure>
+            <figure class="gallery-photo"><img src="assets/image/98c10ce89daedbd3024197ac00aaccfe.jpg" alt="画廊作品 21" loading="lazy"></figure>
+        </section>
+    </main>
+    <script src="../script.js"></script>
 </body>
 </html>

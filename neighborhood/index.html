@@ -3,53 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Qilin Bro 的邻居与友链页面，连接朋友们的博客和个人站。">
+    <meta name="description" content="Kirin 的邻居与友链页面，连接朋友们的博客和个人站。">
     <link rel="canonical" href="https://qilinbro.github.io/neighborhood/">
-    <meta property="og:title" content="邻居们 | Qilin Bro">
+    <meta property="og:title" content="Neighbors | Kirin">
     <meta property="og:description" content="连接朋友们的博客和个人站。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://qilinbro.github.io/neighborhood/">
-    <title>邻居们 | Qilin Bro</title>
+    <title>Neighbors | Kirin</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <div class="intro-animation">
-        <div class="intro-text">
-            <span>n</span>
-            <span>e</span>
-            <span>i</span>
-            <span>g</span>
-            <span>h</span>
-            <span>b</span>
-            <span>o</span>
-            <span>r</span>
-            <span>h</span>
-            <span>o</span>
-            <span>o</span>
-            <span>d</span>
-       </div>
-       <div class="loading-bar">
-           <span>😊</span>
-           <span>😄</span>
-           <span>😃</span>
-           <span>😆</span>
-           <span>😅</span>
-           <span>🤣</span>
-           <span>😂</span>
-           <span>🥰</span>
-       </div>
-    </div>
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <a href="../index.html" class="nav-link">返回首页</a>
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../blog.html" class="nav-link">Notes</a>
+                <a href="../projects.html" class="nav-link">Projects</a>
             </nav>
-            <h1 class="title">我的邻居们 🏘️</h1>
+            <h1 class="title">Neighbors</h1>
+            <p class="gallery-intro">个人网站不是孤岛，这里是朋友们的入口。</p>
         </div>
     </header>
     <main class="main">
         <div class="container">
-            <a href="https://blog.angforever.top/" class="friend-card" target="_blank">
+            <a href="https://blog.angforever.top/" class="friend-card" target="_blank" rel="noopener noreferrer">
                 <div class="friend-info">
                     <img src="../images/Angforever.png" alt="ANGJustinl avatar" class="friend-avatar" loading="lazy" width="96" height="96">
                     <div class="friend-details">
@@ -61,15 +39,6 @@
             </a>
         </div>
     </main>
-    <script src="../js/particle-animation.js"></script>
-    <script>
-        // 动画完成后移除 intro-animation 元素
-        setTimeout(() => {
-            const intro = document.querySelector('.intro-animation');
-            if (intro) {
-                intro.parentElement.removeChild(intro);
-            }
-        }, 2500); // 缩短动画时间
-    </script>
+    <script src="../script.js"></script>
 </body>
 </html>

@@ -3,107 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Qilin Bro 的编程统计仪表盘，展示 WakaTime 编程时间和开发习惯。">
+    <meta name="description" content="Kirin 的编程统计与开发习惯 Telemetry 页面，展示 WakaTime 编程时间、语言和工具。">
     <link rel="canonical" href="https://qilinbro.github.io/dashboard.html">
-    <meta property="og:title" content="编程统计 | Qilin Bro">
-    <meta property="og:description" content="展示 WakaTime 编程时间和开发习惯。">
+    <meta property="og:title" content="Telemetry | Kirin">
+    <meta property="og:description" content="WakaTime 编程统计、语言分布与开发习惯。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://qilinbro.github.io/dashboard.html">
-    <title>编程统计 | Qilin Bro</title>
+    <title>Telemetry | Kirin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="dashboard.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
-    <div class="intro-animation">
-        <div class="intro-text">
-            <span>k</span>
-            <span>i</span>
-            <span>r</span>
-            <span>i</span>
-            <span>n</span>
-            <span>b</span>
-            <span>a</span>
-            <span>o</span>
-        </div>
-    </div>
-    <div class="cursor-trail"></div>
-    
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <a href="index.html" class="nav-link">返回首页</a>
-                <a href="projects.html" class="nav-link">项目展示</a>
-            </nav>
-            <h1 class="dashboard-title">编程统计</h1>
-        </div>
-    </header>
-
-    <main class="main">
-        <div class="container">
-            <div class="dashboard-container">
-                <section class="wakatime-section">
-                    <h2>编程时间统计</h2>
-                    <div class="wakatime-embed">
-                        <div class="charts-container">
-                            <figure>
-                                <figcaption class="sr-only">WakaTime 编程语言统计</figcaption>
-                                <embed src="https://wakatime.com/share/@ec44fecf-e2f0-4f10-b281-af54555dfc52/2f8d95e8-e9d0-4898-838e-23bf6a7707d2.svg" title="WakaTime 编程语言统计"></embed>
-                            </figure>
-                            <figure>
-                                <figcaption class="sr-only">WakaTime 编程时间统计</figcaption>
-                                <embed src="https://wakatime.com/share/@ec44fecf-e2f0-4f10-b281-af54555dfc52/e87422f7-933b-4283-ba9c-4fedfd4c3fc9.svg" title="WakaTime 编程时间统计"></embed>
-                            </figure>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="stats-section">
-                    <h2>编程习惯分析</h2>
-                    <div class="stats-grid">
-                        <div class="stats-card">
-                            <h3><i class="fas fa-code"></i> 常用编程语言</h3>
-                            <ul>
-                                <li><i class="fab fa-python"></i> Python</li>
-                                <li><i class="fab fa-js"></i> JavaScript</li>
-                                <li><i class="fab fa-html5"></i> HTML/CSS</li>
-                                <li><i class="fab fa-java"></i> Java</li>
-                            </ul>
-                        </div>
-                        <div class="stats-card">
-                            <h3><i class="fas fa-tools"></i> 主要开发工具</h3>
-                            <ul>
-                                <li><i class="fas fa-code-branch"></i> VS Code</li>
-                                <li><i class="fas fa-laptop-code"></i> IntelliJ IDEA</li>
-                                <li><i class="fas fa-terminal"></i> PyCharm</li>
-                            </ul>
-                        </div>
-                        <div class="stats-card">
-                            <h3><i class="far fa-clock"></i> 编码时间分布</h3>
-                            <ul>
-                                <li><i class="fas fa-calendar-day"></i> 工作日: 4-6小时/天</li>
-                                <li><i class="fas fa-calendar-week"></i> 周末: 2-4小时/天</li>
-                                <li><i class="fas fa-hourglass-half"></i> 最佳编码时间: 14:00-18:00</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
+<body class="dashboard-page">
+    <nav class="site-nav" aria-label="主导航"><a class="brand-mark" href="index.html">kirin<span>telemetry</span></a><div class="nav-links"><a href="blog.html">Notes</a><a href="projects.html">Projects</a><a href="dashboard.html" aria-current="page">Stats</a><a href="gallery/index.html">Gallery</a><a href="index.html#contact">Contact</a></div></nav>
+    <main id="main">
+        <header class="page-hero" data-reveal><p class="eyebrow">Coding telemetry</p><h1>Stats from the desk</h1><p>这些图表记录我的编程时间、语言偏好和日常开发习惯。它们不是成绩单，而是学习轨迹的仪表盘。</p></header>
+        <section class="section-block" data-reveal>
+            <div class="section-heading"><div><p class="eyebrow">WakaTime</p><h2>Programming time</h2></div></div>
+            <div class="charts-container">
+                <figure><figcaption class="sr-only">WakaTime 编程语言统计</figcaption><embed src="https://wakatime.com/share/@ec44fecf-e2f0-4f10-b281-af54555dfc52/2f8d95e8-e9d0-4898-838e-23bf6a7707d2.svg" title="WakaTime 编程语言统计"></embed></figure>
+                <figure><figcaption class="sr-only">WakaTime 编程时间统计</figcaption><embed src="https://wakatime.com/share/@ec44fecf-e2f0-4f10-b281-af54555dfc52/e87422f7-933b-4283-ba9c-4fedfd4c3fc9.svg" title="WakaTime 编程时间统计"></embed></figure>
             </div>
-        </div>
+        </section>
+        <section class="section-block" data-reveal>
+            <div class="section-heading"><div><p class="eyebrow">GitHub README charts</p><h2>Open-source signals</h2></div></div>
+            <div class="github-chart-grid">
+                <article class="github-chart-card wide">
+                    <h3>GitHub Stats</h3>
+                    <picture>
+                        <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-sigma-five.vercel.app/api?username=qilinbro&show_icons=true&theme=tokyonight&hide_border=true&locale=cn&bg_color=0000">
+                        <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=qilinbro&show_icons=true&theme=tokyonight&hide_border=true&locale=cn&bg_color=0000" alt="Kirin GitHub stats" loading="lazy">
+                    </picture>
+                </article>
+                <article class="github-chart-card wide">
+                    <h3>Contribution Streak</h3>
+                    <picture>
+                        <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=qilinbro&theme=tokyonight&hide_border=true&locale=zh_Hans&background=0000">
+                        <img src="https://streak-stats.demolab.com?user=qilinbro&theme=tokyonight&hide_border=true&locale=zh_Hans&background=0000" alt="Kirin GitHub contribution streak" loading="lazy">
+                    </picture>
+                </article>
+                <article class="github-chart-card">
+                    <h3>Repos per Language</h3>
+                    <picture>
+                        <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=qilinbro&theme=tokyonight">
+                        <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=qilinbro&theme=tokyonight" alt="Kirin repositories per language" loading="lazy">
+                    </picture>
+                </article>
+                <article class="github-chart-card">
+                    <h3>Top Languages</h3>
+                    <picture>
+                        <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=qilinbro&layout=compact&theme=tokyonight&hide_border=true&locale=cn&bg_color=0000">
+                        <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=qilinbro&layout=compact&theme=tokyonight&hide_border=true&locale=cn&bg_color=0000" alt="Kirin top languages" loading="lazy">
+                    </picture>
+                </article>
+                <article class="github-chart-card">
+                    <h3>Productive Time</h3>
+                    <picture>
+                        <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=qilinbro&utcOffset=8&theme=tokyonight">
+                        <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=qilinbro&utcOffset=8&theme=tokyonight" alt="Kirin productive coding time" loading="lazy">
+                    </picture>
+                </article>
+                <article class="github-chart-card full">
+                    <h3>Activity Graph</h3>
+                    <picture>
+                        <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=qilinbro&theme=tokyo-night&hide_border=true&bg_color=0000">
+                        <img src="https://github-readme-activity-graph.vercel.app/graph?username=qilinbro&theme=tokyo-night&hide_border=true&bg_color=0000" alt="Kirin GitHub activity graph" loading="lazy">
+                    </picture>
+                </article>
+            </div>
+        </section>
+        <section class="section-block" data-reveal>
+            <div class="section-heading"><div><p class="eyebrow">WakaTime text report</p><h2>Language ledger</h2></div></div>
+            <div class="code-note waka-ledger" aria-label="WakaTime 编程时间文本统计">
+<pre>From: 04 June 2025 - To: 07 June 2026
+
+Total Time: 63 hrs
+
+Python       18 hrs 33 mins        29.46 %
+TypeScript   12 hrs 58 mins        20.59 %
+Markdown     6 hrs 33 mins         10.41 %
+JavaScript   5 hrs 17 mins         08.41 %
+CSS          3 hrs 14 mins         05.14 %
+JSON         3 hrs 5 mins          04.90 %
+HTML         2 hrs 51 mins         04.53 %
+YAML         2 hrs 44 mins         04.34 %
+Other        1 hr 40 mins          02.67 %
+Prisma       1 hr 1 min            01.63 %</pre>
+            </div>
+        </section>
+        <section class="section-block" data-reveal>
+            <div class="section-heading"><div><p class="eyebrow">Habits</p><h2>Workflow notes</h2></div></div>
+            <div class="stats-grid">
+                <article class="stats-card"><p class="post-meta">Languages</p><h3>常用编程语言</h3><p>Python、JavaScript、HTML/CSS、Java。当前重点在工具开发、Web 页面和工程练习。</p></article>
+                <article class="stats-card"><p class="post-meta">Tools</p><h3>主要开发工具</h3><p>VS Code、IntelliJ IDEA、PyCharm。根据项目类型在轻量编辑和完整 IDE 之间切换。</p></article>
+                <article class="stats-card"><p class="post-meta">Rhythm</p><h3>编程节奏</h3><p>工作日约 4–6 小时，周末约 2–4 小时；最适合写代码的时间是 14:00–18:00。</p></article>
+            </div>
+        </section>
     </main>
-
-
+    <footer class="site-footer"><div><p class="eyebrow">Telemetry</p><h2>Measure, then learn.</h2></div><div class="contact-grid"><a href="index.html">Home</a><a href="blog.html">Notes</a><a href="projects.html">Projects</a><a href="index.html#contact">Contact</a></div><p class="copyright">© 2026 Kirin.</p></footer>
     <script src="script.js"></script>
-    <script src="js/particle-animation.js"></script>
-    <script>
-        // 动画完成后移除 intro-animation 元素
-        setTimeout(() => {
-            const intro = document.querySelector('.intro-animation');
-            if (intro) {
-                intro.parentElement.removeChild(intro);
-            }
-        }, 2500); // 缩短动画时间
-    </script>
-    <script src="js/floating-bg.js"></script>
 </body>
 </html>

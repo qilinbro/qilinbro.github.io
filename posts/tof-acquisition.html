@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TOF 相机数据采集软件项目笔记，记录 C++、OpenCV、USB 通信和实时处理。">
+    <link rel="canonical" href="https://qilinbro.github.io/posts/tof-acquisition.html"><meta property="og:title" content="Capturing TOF Camera Data | Kirin"><meta property="og:type" content="article">
+    <title>Capturing TOF Camera Data | Kirin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../style.css">
+</head>
+<body><div class="reading-progress" aria-hidden="true"></div><nav class="site-nav" aria-label="主导航"><a class="brand-mark" href="../index.html">kirin<span>field notes</span></a><div class="nav-links"><a href="../blog.html">Notes</a><a href="../projects.html">Projects</a><a href="../dashboard.html">Stats</a></div></nav>
+<main class="post-layout"><article class="post-article"><header class="post-header"><p class="eyebrow">Lab Log · C++ Hardware</p><h1>Capturing TOF Camera Data</h1><p class="post-summary">TOF-Acquisition 是一次把硬件连接、图像处理和软件反馈串起来的工程实践。</p><div class="post-tags"><span>C++</span><span>OpenCV</span><span>USB</span><span>Image Processing</span></div></header><section class="post-body"><p>TOF 相机项目最有价值的地方在于它迫使软件和硬件同时被考虑：数据不是凭空出现的，它来自设备、协议、缓冲区和实时处理链路。</p><h2>从数据流开始</h2><p>采集软件需要回答三个问题：设备是否连接、数据是否稳定、处理结果是否及时。任何一个环节不清楚，用户看到的就只是“卡住了”。</p><h2>OpenCV 的角色</h2><p>OpenCV 让图像帧能够快速进入可视化和处理流程。它不是全部答案，但它提供了观察数据质量的窗口。</p><blockquote>硬件项目里的 UI，不只是好看；它是调试工具的一部分。</blockquote><h2>记录</h2><ul><li>USB 通信要尽早暴露连接状态。</li><li>实时处理需要明确帧率和延迟。</li><li>图像显示必须帮助定位问题，而不是掩盖问题。</li></ul></section><nav class="post-nav"><a href="pyqt-zhihu.html">← Previous</a><a href="mcf-manager.html">Next →</a></nav></article><aside class="post-aside"><p class="eyebrow">Metadata</p><a href="https://github.com/qilinbro/TOF-Acquisition" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a><a href="../blog.html">Archive</a></aside></main><script src="../script.js"></script></body></html>
