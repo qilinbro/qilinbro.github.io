@@ -10,8 +10,13 @@
     place-items: center;
     padding: clamp(1rem, 4vw, 3rem);
     background:
-        linear-gradient(rgba(244, 239, 227, 0.34), rgba(244, 239, 227, 0.34)),
-        url('images/d7fbfbb6-5677-4b04-a16a-8dc0834ee58e.png') center / cover no-repeat;
+        linear-gradient(90deg, var(--line) 1px, transparent 1px),
+        linear-gradient(var(--line) 1px, transparent 1px),
+        radial-gradient(circle at 12% 8%, rgba(200, 155, 60, 0.24), transparent 26rem),
+        radial-gradient(circle at 88% 12%, rgba(143, 215, 209, 0.22), transparent 25rem),
+        radial-gradient(circle at 50% 100%, rgba(99, 122, 71, 0.18), transparent 30rem),
+        var(--paper);
+    background-size: 42px 42px, 42px 42px, auto, auto, auto, auto;
     overflow: hidden;
     isolation: isolate;
 }
