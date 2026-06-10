@@ -1,4 +1,227 @@
 /* Mechanical Field Notes design system */
+.standby-gear-stage {
+    --standby-progress: 0;
+    --standby-scale: 1;
+    --standby-lift: 0px;
+    position: relative;
+    min-height: 100svh;
+    z-index: 3;
+    display: grid;
+    place-items: center;
+    padding: clamp(1rem, 4vw, 3rem);
+    background:
+        linear-gradient(rgba(244, 239, 227, 0.34), rgba(244, 239, 227, 0.34)),
+        url('images/d7fbfbb6-5677-4b04-a16a-8dc0834ee58e.png') center / cover no-repeat;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.standby-gear-stage::before {
+    content: '';
+    position: absolute;
+    inset: -20%;
+    opacity: 0.42;
+    background-image:
+        radial-gradient(circle, rgba(21, 21, 18, 0.12) 1px, transparent 1.2px),
+        linear-gradient(115deg, transparent 0 47%, rgba(255, 255, 255, 0.42) 48% 51%, transparent 52% 100%);
+    background-size: 17px 17px, 220px 220px;
+    mix-blend-mode: multiply;
+    animation: paperFloat 8s ease-in-out infinite alternate;
+}
+
+.standby-gear-stage::after {
+    content: 'BLOG';
+    position: absolute;
+    right: clamp(1rem, 5vw, 4rem);
+    bottom: clamp(1rem, 4vw, 3rem);
+    color: rgba(21, 21, 18, calc(0.2 - (var(--standby-progress) * 0.16)));
+    font-family: var(--mono);
+    font-size: clamp(3.5rem, 13vw, 12rem);
+    font-weight: 700;
+    line-height: 0.8;
+    letter-spacing: -0.09em;
+    pointer-events: none;
+}
+
+.home-page.standby-dismissed .standby-gear-stage {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-112%) rotate(-2deg);
+    pointer-events: none;
+}
+
+.standby-gear-sheet {
+    position: relative;
+    z-index: 1;
+    width: min(92vw, 780px);
+    min-height: min(72vh, 620px);
+    display: grid;
+    place-items: center;
+    padding: clamp(1.5rem, 5vw, 4rem);
+    border: 1px solid rgba(70, 52, 28, 0.22);
+    border-radius: calc(42px - (var(--standby-progress) * 14px));
+    background:
+        linear-gradient(135deg, rgba(255, 252, 243, 0.92), rgba(226, 209, 176, 0.72)),
+        repeating-linear-gradient(0deg, transparent 0 28px, rgba(21, 21, 18, 0.035) 29px 30px);
+    box-shadow: 0 34px 90px rgba(62, 45, 20, calc(0.26 - (var(--standby-progress) * 0.12))), inset 0 0 0 10px rgba(255, 255, 255, 0.24);
+    opacity: calc(1 - (var(--standby-progress) * 0.1));
+    transform: translateY(var(--standby-lift)) scale(var(--standby-scale)) rotate(calc(-1.2deg + (var(--standby-progress) * 1.8deg)));
+    transform-origin: 50% 26%;
+    will-change: transform, opacity, border-radius;
+}
+
+.standby-gear-sheet::before,
+.standby-gear-sheet::after {
+    content: '';
+    position: absolute;
+    width: 88px;
+    height: 34px;
+    border: 1px solid rgba(80, 58, 30, 0.16);
+    background: rgba(244, 239, 227, 0.76);
+    box-shadow: 0 12px 30px rgba(70, 52, 28, 0.12);
+}
+
+.standby-gear-sheet::before {
+    top: 28px;
+    left: -22px;
+    transform: rotate(-12deg);
+}
+
+.standby-gear-sheet::after {
+    right: -20px;
+    bottom: 52px;
+    transform: rotate(10deg);
+}
+
+.gear-cluster {
+    position: relative;
+    width: min(72vw, 470px);
+    aspect-ratio: 1;
+    filter: drop-shadow(0 18px 26px rgba(81, 58, 24, 0.16));
+}
+
+.paper-gear,
+.paper-gear::before,
+.paper-gear::after {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.paper-gear {
+    --gear-size: 180px;
+    --gear-ink: rgba(76, 55, 26, 0.24);
+    width: var(--gear-size);
+    height: var(--gear-size);
+    background:
+        radial-gradient(circle, transparent 0 22%, rgba(255, 248, 234, 0.96) 23% 36%, transparent 37%),
+        repeating-conic-gradient(from 0deg, #d2b879 0 7deg, #f8ecd1 7deg 14deg, #b98f3d 14deg 18deg),
+        radial-gradient(circle at 34% 28%, #fff8e8, #d3b472 66%, #ad7b2f 100%);
+    box-shadow: inset 0 0 0 2px var(--gear-ink), inset 0 0 0 14px rgba(255, 251, 239, 0.34);
+    clip-path: polygon(50% 0%,55% 9%,61% 1%,66% 11%,74% 5%,77% 16%,87% 13%,87% 25%,98% 26%,93% 38%,100% 44%,91% 52%,98% 61%,86% 65%,89% 77%,77% 78%,73% 90%,64% 83%,58% 96%,50% 87%,42% 96%,36% 83%,27% 90%,23% 78%,11% 77%,14% 65%,2% 61%,9% 52%,0% 44%,7% 38%,2% 26%,13% 25%,13% 13%,23% 16%,26% 5%,34% 11%,39% 1%,45% 9%);
+    animation: gearTurn 8s linear infinite;
+}
+
+.paper-gear::before {
+    content: '';
+    inset: 21%;
+    border: 2px dashed rgba(65, 45, 20, 0.22);
+    background: radial-gradient(circle, #efe0bd 0 25%, transparent 26% 100%);
+}
+
+.paper-gear::after {
+    content: '';
+    inset: 43%;
+    background: rgba(48, 38, 24, 0.76);
+    box-shadow: inset 0 0 0 6px rgba(255, 248, 234, 0.2);
+}
+
+.gear-large {
+    --gear-size: clamp(170px, 34vw, 270px);
+    left: 4%;
+    top: 18%;
+}
+
+.gear-medium {
+    --gear-size: clamp(130px, 24vw, 205px);
+    right: 10%;
+    top: 8%;
+    animation-name: gearTurnReverse;
+    animation-duration: 6.4s;
+}
+
+.gear-small {
+    --gear-size: clamp(105px, 18vw, 155px);
+    right: 22%;
+    bottom: 14%;
+    animation-name: gearTurnReverse;
+    animation-duration: 6.2s;
+}
+
+.gear-tiny {
+    --gear-size: clamp(72px, 12vw, 104px);
+    left: 20%;
+    bottom: 10%;
+    animation-name: gearTurnReverse;
+    animation-duration: 4.2s;
+}
+
+.standby-caption {
+    position: absolute;
+    left: clamp(1.2rem, 4vw, 3rem);
+    right: clamp(1.2rem, 4vw, 3rem);
+    bottom: clamp(0.45rem, 2vw, 1.2rem);
+    display: grid;
+    gap: 0.3rem;
+}
+
+.standby-caption strong {
+    color: rgba(120, 116, 108, 0.78);
+    font-family: var(--serif);
+    font-size: clamp(2rem, 6vw, 4.2rem);
+    line-height: 0.92;
+    letter-spacing: -0.07em;
+}
+
+.standby-caption span {
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 0.85rem;
+}
+
+.paper-gear-cloud {
+    position: absolute;
+    width: 26rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    opacity: 0.18;
+    background: repeating-conic-gradient(from 10deg, transparent 0 12deg, rgba(21, 21, 18, 0.34) 12deg 15deg, transparent 15deg 24deg);
+    mask: radial-gradient(circle, transparent 0 42%, #000 43% 66%, transparent 67%);
+    animation: gearTurn 24s linear infinite;
+}
+
+.gear-cloud-a {
+    left: -9rem;
+    top: -7rem;
+}
+
+.gear-cloud-b {
+    right: -7rem;
+    bottom: -9rem;
+    animation-direction: reverse;
+}
+
+@keyframes gearTurn {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes gearTurnReverse {
+    to { transform: rotate(-360deg); }
+}
+
+@keyframes paperFloat {
+    to { transform: translate3d(-18px, 14px, 0) rotate(0.4deg); }
+}
+
 .home-page .site-nav,
 .home-page .hero-copy,
 .home-page .specimen-card {
@@ -1088,6 +1311,14 @@ h3 {
         animation-duration: 0.001ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.001ms !important;
+    }
+
+    .standby-gear-stage,
+    .standby-gear-stage::before,
+    .standby-gear-stage::after,
+    .paper-gear,
+    .paper-gear-cloud {
+        animation: none !important;
     }
 
     [data-reveal] {

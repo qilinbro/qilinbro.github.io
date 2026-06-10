@@ -2,6 +2,37 @@
 document.addEventListener('DOMContentLoaded', () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    const initStandbyAnimation = () => {
+        const stage = document.querySelector('.standby-gear-stage');
+        if (!stage || !document.body.classList.contains('home-page')) return;
+
+        const updateStandbyProgress = () => {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const range = Math.max(window.innerHeight * 0.92, 1);
+            const progress = Math.min(1, Math.max(0, scrollTop / range));
+            const scale = 1 - (progress * 0.54);
+            const lift = progress * -96;
+
+            stage.style.setProperty('--standby-progress', progress.toFixed(3));
+            stage.style.setProperty('--standby-scale', scale.toFixed(3));
+            stage.style.setProperty('--standby-lift', `${lift.toFixed(1)}px`);
+        };
+
+        let ticking = false;
+        const requestProgressUpdate = () => {
+            if (ticking) return;
+            ticking = true;
+            window.requestAnimationFrame(() => {
+                updateStandbyProgress();
+                ticking = false;
+            });
+        };
+
+        updateStandbyProgress();
+        window.addEventListener('scroll', requestProgressUpdate, { passive: true });
+        window.addEventListener('resize', updateStandbyProgress);
+    };
+
     const initReveal = () => {
         const revealItems = document.querySelectorAll('[data-reveal]');
         if (!revealItems.length) return;
@@ -108,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    initStandbyAnimation();
     initReveal();
     initReadingProgress();
     initFilters();
